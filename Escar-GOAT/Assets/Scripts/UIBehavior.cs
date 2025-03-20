@@ -60,14 +60,20 @@ public class UIBehavior : MonoBehaviour
         //update coinText with currencyCount
         coinText.text = "Coins: " + playerController.currencyCount.ToString();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    if (shopMenu.activeSelf)
+        //        ExitShop();
+        //    else
+        //        OpenShop();
+        //}
+        if(userInput.ToggleShop)
         {
             if (shopMenu.activeSelf)
                 ExitShop();
             else
                 OpenShop();
         }
-        //userInput.; ???
         //when player presses down
         //move selection down
 
