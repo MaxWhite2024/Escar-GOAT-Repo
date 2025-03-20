@@ -17,6 +17,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject timerUI;
     [SerializeField] private GameObject player;
+    [SerializeField] private List<Transform> spawnLocations;
 
     [Header("Debugs")]
     [SerializeField] private List<GameObject> enemies;
@@ -37,6 +38,14 @@ public class EnemyManager : MonoBehaviour
             player = GameObject.Find("Player");
         }
 
+        if (spawnLocations == null || spawnLocations.Count <= 0)
+        {
+            foreach (Transform child in player.transform.GetChild(0))
+            {
+                spawnLocations.Add(child);
+            }
+        }
+
     }
 
     // Update is called once per frame
@@ -55,7 +64,7 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < waveSize; i++)
         {
-            GameObject enemy = Instantiate(enemyPrefab);
+            GameObject enemy = Instantiate(enemyPrefab, spawnLocations[Random.Range(0, spawnLocations.Count)].position, Quaternion.identity);
             enemy.GetComponent<Damageable>().health += (int)addedHealth;
             enemy.GetComponent<DamageSource>().damage += (int)addedDamage;
 
