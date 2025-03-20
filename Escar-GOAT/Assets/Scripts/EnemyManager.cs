@@ -10,6 +10,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float spawnTimer;
     [SerializeField] private int waveSize;
     [SerializeField] private int enemiesAddedEachWave;
+    [SerializeField] private float enemyHealthAddedEachWave;
+    [SerializeField] private float enemyDamageAddedEachWave;
 
     [Header("Objects To Reference")]
     [SerializeField] private GameObject enemyPrefab;
@@ -19,6 +21,8 @@ public class EnemyManager : MonoBehaviour
     [Header("Debugs")]
     [SerializeField] private List<GameObject> enemies;
     [SerializeField] private float timer;
+    private float addedHealth;
+    private float addedDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -51,9 +55,15 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < waveSize; i++)
         {
-            enemies.Add(Instantiate(enemyPrefab));
+            GameObject enemy = Instantiate(enemyPrefab);
+            enemy.GetComponent<Damageable>().health += (int)addedHealth;
+            enemy.GetComponent<DamageSource>().damage += (int)addedDamage;
+
+            enemies.Add(enemy);
         }
 
         waveSize += enemiesAddedEachWave;
+        addedHealth += enemyHealthAddedEachWave;
+        addedDamage += enemyDamageAddedEachWave;
     }
 }
