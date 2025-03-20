@@ -59,10 +59,83 @@ public class UIBehavior : MonoBehaviour
 
         //update coinText with currencyCount
         coinText.text = "Coins: " + playerController.currencyCount.ToString();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (shopMenu.activeSelf)
+                ExitShop();
+            else
+                OpenShop();
+        }
+        //userInput.; ???
+        //when player presses down
+        //move selection down
+
+        //when player presses up
+        //move selection up
+
+        //when player presses select
+        //select the current UI item
+
+        //when player deselects 
+        //exit shop
+        //ExitShop();
     }
 
     private void FixedUpdate()
     {
-        userInput
+        //if(Input.GetKeyDown(KeyCode.E))
+        //{
+        //    Debug.Log("Here");
+        //    if (shopMenu.activeSelf)
+        //        ExitShop();
+        //    else
+        //        OpenShop();
+        //}
+        ////userInput.; ???
+        ////when player presses down
+        ////move selection down
+
+        ////when player presses up
+        ////move selection up
+
+        ////when player presses select
+        ////select the current UI item
+
+        ////when player deselects 
+        ////exit shop
+        //ExitShop();
+    }
+
+    private void ExitShop()
+    {
+        //if shopMenu is active,...
+        if (shopMenu.activeSelf)
+        {
+            //make shopMenu NOT active
+            shopMenu.SetActive(false);
+        }
+        //else shopMenu is NOT active,...
+        else
+        {
+            //do nothing
+            return;
+        }
+    }
+
+    private void OpenShop()
+    {
+        //if shopMenu is active,...
+        if(shopMenu.activeSelf)
+        {
+            //do nothing
+            return;
+        }
+        //else shopMenu is NOT active,...
+        else
+        {
+            //make shopMenu active
+            shopMenu.SetActive(true);
+        }
     }
 }

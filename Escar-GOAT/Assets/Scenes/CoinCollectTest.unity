@@ -788,6 +788,10 @@ PrefabInstance:
       value: Canvas Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 2579488182900423996, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: userInput
+      value: 
+      objectReference: {fileID: 1357850798}
+    - target: {fileID: 2579488182900423996, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 403727533}
@@ -869,6 +873,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8309429753704110558, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8687830682211127542, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
