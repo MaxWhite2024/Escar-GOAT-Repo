@@ -6,7 +6,11 @@ using UnityEngine;
 public class UIBehavior : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private UserInput userInput;
+
+    [Header("UI Variables")]
     [SerializeField] private TextMeshProUGUI coinText;
+    [SerializeField] private GameObject shopMenu;
 
     private bool anyLogWarnings = false;
 
@@ -31,6 +35,16 @@ public class UIBehavior : MonoBehaviour
             //make anyLogWarnings true
             anyLogWarnings = true;
         }
+
+        //if userInput has NOT been assigned,...
+        if (!userInput)
+        {
+            //Log a warning
+            Debug.LogWarning("User Input has not been assigned to Canvas | Please assign a User Input component to the User Input variable");
+             
+            //make anyLogWarnings true
+            anyLogWarnings = true;
+        }
     }
 
     // Update is called once per frame
@@ -45,5 +59,10 @@ public class UIBehavior : MonoBehaviour
 
         //update coinText with currencyCount
         coinText.text = "Coins: " + playerController.currencyCount.ToString();
+    }
+
+    private void FixedUpdate()
+    {
+        userInput
     }
 }
