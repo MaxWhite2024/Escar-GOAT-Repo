@@ -15,12 +15,15 @@ public class UserInput : MonoBehaviour
     public bool ShootReleased { get; private set; }
     public bool Pause { get; private set; }
 
+    public bool ToggleShop { get; private set; }
+
     private PlayerInput _playerInput;
 
     private InputAction _moveAction;
     private InputAction _sprintAction;
     private InputAction _shootAction;
     private InputAction _pauseAction;
+    private InputAction _toggleShopAction;
 
     public void Awake()
     {
@@ -47,6 +50,7 @@ public class UserInput : MonoBehaviour
         _sprintAction = _playerInput.actions["Sprint"];
         _shootAction = _playerInput.actions["Shoot"];
         _pauseAction = _playerInput.actions["Pause"];
+        _toggleShopAction = _playerInput.actions["ToggleShop"];
     }
 
     private void UpdateInputs()
@@ -59,6 +63,7 @@ public class UserInput : MonoBehaviour
         ShootHeld = _shootAction.IsPressed();
         ShootReleased = _shootAction.WasReleasedThisFrame();
         Pause = _pauseAction.WasPressedThisFrame();
+        ToggleShop = _toggleShopAction.WasPressedThisFrame();
     }
 
     public void inGameActionMapEnable()
