@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     [HideInInspector] public UserInput input; // Include the input system
     [HideInInspector] public Vector2 axis;
-    public int currencyCount;
 
     void Start()
     {
@@ -33,7 +32,7 @@ public class PlayerController : MonoBehaviour
         // Increase currency upon touching the coin
         if (other.CompareTag("Coin"))
         {
-            currencyCount++;
+            PlayerStats.currencyCount++;
         }
     }
 }

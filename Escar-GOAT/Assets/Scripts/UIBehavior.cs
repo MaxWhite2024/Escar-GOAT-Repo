@@ -69,7 +69,7 @@ public class UIBehavior : MonoBehaviour
         }
 
         //update coinText with currencyCount
-        coinText.text = "Coins: " + playerController.currencyCount.ToString();
+        coinText.text = "Coins: " + PlayerStats.currencyCount.ToString();
 
         //update upgrade cost texts
         speedUpgradeText.text = PlayerStats.speedUpgradeCost.ToString();

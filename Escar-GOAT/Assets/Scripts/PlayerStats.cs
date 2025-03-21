@@ -19,6 +19,9 @@ public class PlayerStats : ScriptableObject
     public static int inductionUpgradeCost = 1;
     public static int loveUpgradeCost = 1;
 
+    //player coins
+    public static int currencyCount = 0;
+
     public static void PrintStats()
     {
         Debug.Log("||||| Current Player Stats ||||| \n" + 

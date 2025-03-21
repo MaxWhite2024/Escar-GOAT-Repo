@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-    //public float collectDistance;
     public float coinSpeed;
     public float coinDespawnTime;
     [HideInInspector] public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
