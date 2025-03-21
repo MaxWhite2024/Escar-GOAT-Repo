@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DamageableType { Player, Enemy};
+
 public class Damageable : MonoBehaviour
 {
 
     public int health;
+    [SerializeField] private DamageableType type;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +42,15 @@ public class Damageable : MonoBehaviour
 
     private void Death()
     {
-        Destroy(gameObject);
+        if (type == DamageableType.Player)
+        {
+            //Add player death functionality here
+        }
+        else
+        {
+            this.gameObject.GetComponent<Enemy>().Die();
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
