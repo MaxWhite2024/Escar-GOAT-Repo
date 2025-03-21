@@ -639,6 +639,11 @@ MonoBehaviour:
   - {fileID: 2591628288742458288}
   closedShopUI:
   - {fileID: 816887069230512224}
+  speedUpgradeText: {fileID: 5035522282487791411}
+  numberUpgradeText: {fileID: 202956545392132247}
+  attackUpgradeText: {fileID: 8480193180711065430}
+  inductionUpgradeText: {fileID: 3190938083883481831}
+  loveUpgradeText: {fileID: 4154291642110207553}
 --- !u!114 &8182584344381598096
 MonoBehaviour:
   m_ObjectHideFlags: 0

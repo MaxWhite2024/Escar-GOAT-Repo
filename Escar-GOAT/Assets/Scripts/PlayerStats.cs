@@ -12,6 +12,13 @@ public class PlayerStats : ScriptableObject
     public static float coinPickupRange = 3f; //INDUCTION
     public static int maxHealth = 3; //LOVE
 
+    //upgrade cost stats
+    public static int speedUpgradeCost = 1;
+    public static int numberUpgradeCost = 1;
+    public static int attackUpgradeCost = 1;
+    public static int inductionUpgradeCost = 1;
+    public static int loveUpgradeCost = 1;
+
     public static void PrintStats()
     {
         Debug.Log("||||| Current Player Stats ||||| \n" + 

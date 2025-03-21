@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIBehavior : MonoBehaviour
 {
@@ -14,6 +15,13 @@ public class UIBehavior : MonoBehaviour
     private bool isShopOpen = false;
     [SerializeField] private List<GameObject> openedShopUI;
     [SerializeField] private List<GameObject> closedShopUI;
+
+    [Header("Upgrade Text Variables")]
+    [SerializeField] private TextMeshProUGUI speedUpgradeText;
+    [SerializeField] private TextMeshProUGUI numberUpgradeText;
+    [SerializeField] private TextMeshProUGUI attackUpgradeText;
+    [SerializeField] private TextMeshProUGUI inductionUpgradeText;
+    [SerializeField] private TextMeshProUGUI loveUpgradeText;
 
     private bool anyLogWarnings = false;
 
@@ -62,6 +70,13 @@ public class UIBehavior : MonoBehaviour
 
         //update coinText with currencyCount
         coinText.text = "Coins: " + playerController.currencyCount.ToString();
+
+        //update upgrade cost texts
+        speedUpgradeText.text = PlayerStats.speedUpgradeCost.ToString();
+        numberUpgradeText.text = PlayerStats.numberUpgradeCost.ToString();
+        attackUpgradeText.text = PlayerStats.attackUpgradeCost.ToString();
+        inductionUpgradeText.text = PlayerStats.inductionUpgradeCost.ToString();
+        loveUpgradeText.text = PlayerStats.loveUpgradeCost.ToString();
 
         //if user pressed the toggle shop button,...
         if (userInput.ToggleShop)
