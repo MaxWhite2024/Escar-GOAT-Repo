@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using TMPro;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -15,7 +16,7 @@ public class EnemyManager : MonoBehaviour
 
     [Header("Objects To Reference")]
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private GameObject timerUI;
+    [SerializeField] private TextMeshProUGUI timerUI;
     [SerializeField] private GameObject player;
     [SerializeField] private List<Transform> spawnLocations;
 
@@ -38,6 +39,11 @@ public class EnemyManager : MonoBehaviour
             player = GameObject.Find("Player");
         }
 
+        if (timerUI == null)
+        {
+            timerUI = GameObject.Find("Wave Timer").GetComponent< TextMeshProUGUI>();
+        }
+
         if (spawnLocations == null || spawnLocations.Count <= 0)
         {
             foreach (Transform child in player.transform.GetChild(0))
@@ -52,6 +58,8 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+
+        timerUI.text = "Next Wave: " + (int)timer;
 
         if (timer <= 0 || enemies.Count <= 0)
         {
