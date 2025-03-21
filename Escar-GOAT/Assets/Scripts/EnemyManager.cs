@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private List<Transform> spawnLocations;
 
     [Header("Debugs")]
-    [SerializeField] private List<GameObject> enemies;
+    public List<GameObject> enemies;
     [SerializeField] private float timer;
     private float addedHealth;
     private float addedDamage;
@@ -53,7 +53,7 @@ public class EnemyManager : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0)
+        if (timer <= 0 || enemies.Count <= 0)
         {
             SpawnEnemies();
             timer = spawnTimer;
@@ -67,7 +67,7 @@ public class EnemyManager : MonoBehaviour
             GameObject enemy = Instantiate(enemyPrefab, spawnLocations[Random.Range(0, spawnLocations.Count)].position, Quaternion.identity);
             enemy.GetComponent<Damageable>().health += (int)addedHealth;
             enemy.GetComponent<DamageSource>().damage += (int)addedDamage;
-
+            enemy.GetComponent<Enemy>().manager = this;
             enemies.Add(enemy);
         }
 
