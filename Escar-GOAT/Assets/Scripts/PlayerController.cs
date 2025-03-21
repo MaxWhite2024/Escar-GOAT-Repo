@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //public PlayerStats playerStats;
-    //public float movementSpeed; // Adjust the player's movement speed
     private Rigidbody2D rb;
     [HideInInspector] public UserInput input; // Include the input system
     [HideInInspector] public Vector2 axis;
