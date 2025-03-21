@@ -19,7 +19,7 @@ public class PlayerStats : ScriptableObject
         "Number = " + numberOfProjectilesPerShot + ". | " +
         "Attack = " + shotsPerSecond + ". | " +
         "Induction = " + coinPickupRange + ". | " +
-        "love = " + maxHealth + "."
+        "love = " + maxHealth + ".SS"
         );
     }
 }
