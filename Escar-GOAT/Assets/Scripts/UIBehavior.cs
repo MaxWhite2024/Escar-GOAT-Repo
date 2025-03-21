@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +11,9 @@ public class UIBehavior : MonoBehaviour
 
     [Header("UI Variables")]
     [SerializeField] private TextMeshProUGUI coinText;
-    [SerializeField] private GameObject shopMenu;
+    private bool isShopOpen = false;
+    [SerializeField] private List<GameObject> openedShopUI;
+    [SerializeField] private List<GameObject> closedShopUI;
 
     private bool anyLogWarnings = false;
 
@@ -60,20 +63,12 @@ public class UIBehavior : MonoBehaviour
         //update coinText with currencyCount
         coinText.text = "Coins: " + playerController.currencyCount.ToString();
 
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    if (shopMenu.activeSelf)
-        //        ExitShop();
-        //    else
-        //        OpenShop();
-        //}
-        if(userInput.ToggleShop)
+        //if user pressed the toggle shop button,...
+        if (userInput.ToggleShop)
         {
-            if (shopMenu.activeSelf)
-                ExitShop();
-            else
-                OpenShop();
+            ToggleShop();
         }
+
         //when player presses down
         //move selection down
 
@@ -88,38 +83,41 @@ public class UIBehavior : MonoBehaviour
         //ExitShop();
     }
 
-    private void FixedUpdate()
+    private void ToggleShop()
     {
-        //if(Input.GetKeyDown(KeyCode.E))
-        //{
-        //    Debug.Log("Here");
-        //    if (shopMenu.activeSelf)
-        //        ExitShop();
-        //    else
-        //        OpenShop();
-        //}
-        ////userInput.; ???
-        ////when player presses down
-        ////move selection down
-
-        ////when player presses up
-        ////move selection up
-
-        ////when player presses select
-        ////select the current UI item
-
-        ////when player deselects 
-        ////exit shop
-        //ExitShop();
+        //if shop is open,...
+        if (isShopOpen)
+        {
+            //exit the shop
+            ExitShop();
+        }
+        //else shop is NOT open,...
+        else
+        {
+            //open the shop
+            OpenShop();
+        }
     }
 
     private void ExitShop()
     {
         //if shopMenu is active,...
-        if (shopMenu.activeSelf)
+        if (isShopOpen)
         {
-            //make shopMenu NOT active
-            shopMenu.SetActive(false);
+            //make all openedShopUI NOT active
+            for (int i = 0; i < openedShopUI.Count; i++)
+            {
+                openedShopUI[i].SetActive(false);
+            }
+
+            //make all closedShopUI active
+            for (int i = 0; i < closedShopUI.Count; i++)
+            {
+                closedShopUI[i].SetActive(true);
+            }
+
+            //set isShopOpen to false
+            isShopOpen = false;
         }
         //else shopMenu is NOT active,...
         else
@@ -132,7 +130,7 @@ public class UIBehavior : MonoBehaviour
     private void OpenShop()
     {
         //if shopMenu is active,...
-        if(shopMenu.activeSelf)
+        if(isShopOpen)
         {
             //do nothing
             return;
@@ -140,8 +138,20 @@ public class UIBehavior : MonoBehaviour
         //else shopMenu is NOT active,...
         else
         {
-            //make shopMenu active
-            shopMenu.SetActive(true);
+            //make all openedShopUI active
+            for (int i = 0; i < openedShopUI.Count; i++)
+            {
+                openedShopUI[i].SetActive(true);
+            }
+
+            //make all closedShopUI NOT active
+            for (int i = 0; i < closedShopUI.Count; i++)
+            {
+                closedShopUI[i].SetActive(false);
+            }
+
+            //set isShopOpen to true
+            isShopOpen = true;
         }
     }
 }

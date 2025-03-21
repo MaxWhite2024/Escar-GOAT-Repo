@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-    public float collectDistance;
+    //public float collectDistance;
     public float coinSpeed;
     public float coinDespawnTime;
     [HideInInspector] public GameObject player;
@@ -25,7 +25,7 @@ public class CoinScript : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position);
 
         // If coin is close enough to the player, move towards the player
-        if (dist <= collectDistance) 
+        if (dist <= PlayerStats.coinPickupRange) 
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, coinSpeed * Time.deltaTime);
     }
 

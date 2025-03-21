@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ad7157a41df4e7c868d9c0c3cde478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
+  movementSpeed: 0
   input: {fileID: 0}
   axis: {x: 0, y: 0}
   currencyCount: 0

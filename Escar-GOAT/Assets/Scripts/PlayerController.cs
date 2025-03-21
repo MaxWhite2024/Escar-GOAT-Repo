@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed; // Adjust the player's movement speed
+    //public PlayerStats playerStats;
+    //public float movementSpeed; // Adjust the player's movement speed
     private Rigidbody2D rb;
     [HideInInspector] public UserInput input; // Include the input system
     [HideInInspector] public Vector2 axis;
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(axis.x * movementSpeed, axis.y * movementSpeed); // This moves the player
+        rb.velocity = new Vector2(axis.x * PlayerStats.movementSpeed, axis.y * PlayerStats.movementSpeed); // This moves the player
     }
 
     void OnTriggerEnter2D(Collider2D other)
