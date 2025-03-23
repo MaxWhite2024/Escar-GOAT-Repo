@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2959067218245932327}
   - component: {fileID: 7089670172887472979}
   - component: {fileID: 6792524254400340179}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -199,6 +199,8 @@ MonoBehaviour:
   input: {fileID: 0}
   axis: {x: 0, y: 0}
   playerWeaponTransform: {fileID: 3219722358520361748}
+  playerBulletPrefab: {fileID: 4692344183259313107, guid: 1b673f598de6b7c49aad43f26366e635, type: 3}
+  firePoint: {fileID: 4297657955415602788}
 --- !u!61 &2959067218245932327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -314,7 +316,8 @@ Transform:
   m_LocalPosition: {x: 0.84, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.39, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4297657955415602788}
   m_Father: {fileID: 3219722358520361748}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &516845886440986854
@@ -400,6 +403,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7224738850432637625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2561824802995907438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4297657955415602788}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4297657955415602788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2561824802995907438}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.498, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7155069033451770400}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3441229998756204941
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3219722358520361748}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Weapon Hinge Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

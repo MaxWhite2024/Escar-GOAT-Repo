@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         Instantiate(coinPrefab, this.transform.position, this.transform.rotation);
-        manager.enemies.Remove(this.gameObject);
+        //manager.enemies.Remove(this.gameObject);
         Destroy(this.gameObject);
     }
 
