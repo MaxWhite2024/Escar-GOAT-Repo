@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public UserInput input; // Include the input system
     [HideInInspector] public Vector2 axis;
     private Vector2 aimDirection;
-    [SerializeField] private GameObject playerWeapon;
+    [SerializeField] private Transform playerWeaponTransform;
 
     void Start()
     {
@@ -23,11 +23,12 @@ public class PlayerController : MonoBehaviour
     {
         axis = input.MoveInput; // Variable that detects player's movement input
 
+        Debug.Log(input.MousePos);
         //update aimDirection based on CursorPosition and player position
-        aimDirection = input.AimInput - (Vector2)gameObject.transform.position;
+        aimDirection = input.MousePos - (Vector2)gameObject.transform.position;
 
         //rotate player weapon based on aimDirection
-        //playerWeapon
+        playerWeaponTransform.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg));
     }
 
     void FixedUpdate()

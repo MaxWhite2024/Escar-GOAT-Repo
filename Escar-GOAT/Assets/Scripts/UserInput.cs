@@ -8,7 +8,7 @@ public class UserInput : MonoBehaviour
     public static UserInput instance;
     public Vector2 MoveInput { get; private set; }
 
-    public Vector2 AimInput { get; private set; }
+    public Vector2 MousePos { get; private set; }
     public bool Sprint { get; private set; }
     public bool SprintHeld { get; private set; }
     public bool SprintReleased { get; private set; }
@@ -60,7 +60,7 @@ public class UserInput : MonoBehaviour
     private void UpdateInputs()
     {
         MoveInput = _moveAction.ReadValue<Vector2>();
-        AimInput = _aimAction.ReadValue<Vector2>();
+        MousePos = Camera.main.ScreenToWorldPoint(_aimAction.ReadValue<Vector2>());
         Sprint = _sprintAction.WasPressedThisFrame();
         SprintHeld = _sprintAction.IsPressed();
         SprintReleased = _sprintAction.WasReleasedThisFrame();
