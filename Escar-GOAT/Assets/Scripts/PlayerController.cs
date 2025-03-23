@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     [HideInInspector] public UserInput input; // Include the input system
     [HideInInspector] public Vector2 axis;
+    private Vector2 aimDirection;
+    [SerializeField] private GameObject playerWeapon;
 
     void Start()
     {
@@ -20,6 +22,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         axis = input.MoveInput; // Variable that detects player's movement input
+
+        //update aimDirection based on CursorPosition and player position
+        aimDirection = input.AimInput - (Vector2)gameObject.transform.position;
+
+        //rotate player weapon based on aimDirection
+        //playerWeapon
     }
 
     void FixedUpdate()

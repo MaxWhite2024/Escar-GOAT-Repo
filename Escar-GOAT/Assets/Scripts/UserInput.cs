@@ -7,6 +7,8 @@ public class UserInput : MonoBehaviour
 {
     public static UserInput instance;
     public Vector2 MoveInput { get; private set; }
+
+    public Vector2 AimInput { get; private set; }
     public bool Sprint { get; private set; }
     public bool SprintHeld { get; private set; }
     public bool SprintReleased { get; private set; }
@@ -20,6 +22,7 @@ public class UserInput : MonoBehaviour
     private PlayerInput _playerInput;
 
     private InputAction _moveAction;
+    private InputAction _aimAction;
     private InputAction _sprintAction;
     private InputAction _shootAction;
     private InputAction _pauseAction;
@@ -47,6 +50,7 @@ public class UserInput : MonoBehaviour
     private void SetupInputActions()
     {
         _moveAction = _playerInput.actions["Move"];
+        _aimAction = _playerInput.actions["Aim"];
         _sprintAction = _playerInput.actions["Sprint"];
         _shootAction = _playerInput.actions["Shoot"];
         _pauseAction = _playerInput.actions["Pause"];
@@ -56,6 +60,7 @@ public class UserInput : MonoBehaviour
     private void UpdateInputs()
     {
         MoveInput = _moveAction.ReadValue<Vector2>();
+        AimInput = _aimAction.ReadValue<Vector2>();
         Sprint = _sprintAction.WasPressedThisFrame();
         SprintHeld = _sprintAction.IsPressed();
         SprintReleased = _sprintAction.WasReleasedThisFrame();
