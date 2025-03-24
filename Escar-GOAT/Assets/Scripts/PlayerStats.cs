@@ -32,5 +32,25 @@ public class PlayerStats : ScriptableObject
         "love = " + maxHealth + ".SS"
         );
     }
+
+    /// <summary>
+    /// Resets the player's stats
+    /// </summary>
+    public static void ResetPlayer()
+    {
+        movementSpeed = 1;
+        numberOfProjectilesPerShot = 1;
+        shotsPerSecond = 1;
+        coinPickupRange = 3f;
+        maxHealth = 3;
+
+        speedUpgradeCost = 1;
+        numberUpgradeCost = 1;
+        attackUpgradeCost = 1;
+        inductionUpgradeCost = 1;
+        loveUpgradeCost = 1;
+            
+        currencyCount = 0;
+    }
 }
 

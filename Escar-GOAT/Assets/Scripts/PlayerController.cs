@@ -22,28 +22,10 @@ public class PlayerController : MonoBehaviour
             input = GameObject.Find("Input Manager").GetComponent<UserInput>();
         }
 
-        ResetPlayer();
+        PlayerStats.ResetPlayer();
     }
 
-    /// <summary>
-    /// Resets the player's stats
-    /// </summary>
-    private void ResetPlayer()
-    {
-        PlayerStats.movementSpeed = 1;
-        PlayerStats.numberOfProjectilesPerShot = 1;
-        PlayerStats.shotsPerSecond = 1;
-        PlayerStats.coinPickupRange = 3f;
-        PlayerStats.maxHealth = 3;
-
-        PlayerStats.speedUpgradeCost = 1;
-        PlayerStats.numberUpgradeCost = 1;
-        PlayerStats.attackUpgradeCost = 1;
-        PlayerStats.inductionUpgradeCost = 1;
-        PlayerStats.loveUpgradeCost = 1;
-
-        PlayerStats.currencyCount = 0;
-    }
+    
 
     // Update is called once per frame
     void Update()
