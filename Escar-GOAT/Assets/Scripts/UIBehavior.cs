@@ -27,6 +27,9 @@ public class UIBehavior : MonoBehaviour
 
     private void Start()
     {
+        //Resume game
+        Resume();
+
         //if playerController has NOT been assigned,...
         if (!playerController)
         {
@@ -116,6 +119,9 @@ public class UIBehavior : MonoBehaviour
 
     private void ExitShop()
     {
+        //Resume the game
+        Resume();
+
         //if shopMenu is active,...
         if (isShopOpen)
         {
@@ -144,6 +150,9 @@ public class UIBehavior : MonoBehaviour
 
     private void OpenShop()
     {
+        //pause the game
+        Pause();
+
         //if shopMenu is active,...
         if(isShopOpen)
         {
@@ -168,5 +177,15 @@ public class UIBehavior : MonoBehaviour
             //set isShopOpen to true
             isShopOpen = true;
         }
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0.0f;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1.0f;
     }
 }
