@@ -12,6 +12,7 @@ public class UIBehavior : MonoBehaviour
 
     [Header("UI Variables")]
     [SerializeField] private TextMeshProUGUI coinText;
+    [SerializeField] private TextMeshProUGUI playerHealthText;
     private bool isShopOpen = false;
     [SerializeField] private List<GameObject> openedShopUI;
     [SerializeField] private List<GameObject> closedShopUI;
@@ -44,7 +45,7 @@ public class UIBehavior : MonoBehaviour
         if (!coinText)
         {
             //Log a warning
-            Debug.LogWarning("Coin Text has not been assigned to Canvas | Please assign a TextMeshProUGUI to the Coin Text variable");
+            Debug.LogWarning("Coin Text has not been assigned to Canvas | Please assign a TextMeshProUGUI component to the Coin Text variable");
 
             //make anyLogWarnings true
             anyLogWarnings = true;
@@ -56,6 +57,16 @@ public class UIBehavior : MonoBehaviour
             //Log a warning
             Debug.LogWarning("User Input has not been assigned to Canvas | Please assign a User Input component to the User Input variable");
              
+            //make anyLogWarnings true
+            anyLogWarnings = true;
+        }
+
+        //if playerHealthText has NOT been assigned,...
+        if (!playerHealthText)
+        {
+            //Log a warning
+            Debug.LogWarning("Player Health Text has not been assigned to Canvas | Please assign a TextMeshProUGUI component to the Pleayer Health Text variable");
+
             //make anyLogWarnings true
             anyLogWarnings = true;
         }
@@ -73,6 +84,9 @@ public class UIBehavior : MonoBehaviour
 
         //update coinText with currencyCount
         coinText.text = "Coins: " + PlayerStats.currencyCount.ToString();
+
+        //update player health with = 
+        playerHealthText.text = "Health: " + PlayerStats.playerHealth.ToString();
 
         //update upgrade cost texts
         speedUpgradeText.text = PlayerStats.speedUpgradeCost.ToString();

@@ -11,18 +11,15 @@ public class Damageable : MonoBehaviour
     public int health;
     [SerializeField] private DamageableType type;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        //if this damageableType is the player,...
+        if (type == DamageableType.Player)
+        {
+            //set PlayerStats to equal health
+            PlayerStats.playerHealth = health;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void CollisionLogic(Collider2D collision)
     {
 
@@ -33,6 +30,13 @@ public class Damageable : MonoBehaviour
         }
         
         health -= damage.damage;
+
+        //if this damageableType is the player,...
+        if(type == DamageableType.Player)
+        {
+            //update PlayerStats to equal health
+            PlayerStats.playerHealth = health;
+        }
 
         if(health <= 0)
         {

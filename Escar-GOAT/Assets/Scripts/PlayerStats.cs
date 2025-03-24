@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player Stats Instance", menuName = "New Player Stats Instance")]
 public class PlayerStats : ScriptableObject
 {
+    //player health
+    public static int playerHealth = 5;
+
     //base player stats
     public static float movementSpeed = 2f; //SPEED
     public static int numberOfProjectilesPerShot = 1; //NUMBER
