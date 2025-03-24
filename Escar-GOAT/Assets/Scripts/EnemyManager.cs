@@ -9,8 +9,8 @@ public class EnemyManager : MonoBehaviour
 
     [Header("Vars to Set")]
     [SerializeField] private float spawnTimer;
-    [SerializeField] private int waveSize;
-    [SerializeField] private int enemiesAddedEachWave;
+    [SerializeField] private float waveSize;
+    [SerializeField] private float enemiesAddedEachWave;
     [SerializeField] private float enemyHealthAddedEachWave;
     [SerializeField] private float enemyDamageAddedEachWave;
 
@@ -70,7 +70,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        for (int i = 0; i < waveSize; i++)
+        for (int i = 0; i < (int)waveSize; i++)
         {
             GameObject enemy = Instantiate(enemyPrefab, spawnLocations[Random.Range(0, spawnLocations.Count)].position, Quaternion.identity);
             enemy.GetComponent<Damageable>().health += (int)addedHealth;

@@ -23,7 +23,7 @@ public class ShopBehavior : MonoBehaviour
                     PlayerStats.currencyCount -= PlayerStats.speedUpgradeCost;
 
                     //upgrade speed
-                    PlayerStats.movementSpeed *= 2;
+                    PlayerStats.movementSpeed += 2;
 
                     //increase speed upgrade cost
                     PlayerStats.speedUpgradeCost *= 2;
@@ -38,7 +38,7 @@ public class ShopBehavior : MonoBehaviour
                     PlayerStats.currencyCount -= PlayerStats.numberUpgradeCost;
 
                     //upgrade speed
-                    PlayerStats.numberOfProjectilesPerShot *= 2;
+                    PlayerStats.numberOfProjectilesPerShot += 2;
 
                     //increase number upgrade cost
                     PlayerStats.numberUpgradeCost *= 2;
@@ -53,7 +53,7 @@ public class ShopBehavior : MonoBehaviour
                     PlayerStats.currencyCount -= PlayerStats.attackUpgradeCost;
 
                     //upgrade speed
-                    PlayerStats.shotsPerSecond *= 2;
+                    PlayerStats.shotsPerSecond += 2;
 
                     //increase attack upgrade cost
                     PlayerStats.attackUpgradeCost *= 2;
@@ -68,7 +68,7 @@ public class ShopBehavior : MonoBehaviour
                     PlayerStats.currencyCount -= PlayerStats.inductionUpgradeCost;
 
                     //upgrade induction
-                    PlayerStats.coinPickupRange *= 2;
+                    PlayerStats.coinPickupRange += 2;
 
                     //increase induction upgrade cost
                     PlayerStats.inductionUpgradeCost *= 2;
@@ -83,7 +83,7 @@ public class ShopBehavior : MonoBehaviour
                     PlayerStats.currencyCount -= PlayerStats.loveUpgradeCost;
 
                     //upgrade induction
-                    PlayerStats.maxHealth *= 2;
+                    PlayerStats.maxHealth += 2;
 
                     //increase induction upgrade cost
                     PlayerStats.loveUpgradeCost *= 2;
