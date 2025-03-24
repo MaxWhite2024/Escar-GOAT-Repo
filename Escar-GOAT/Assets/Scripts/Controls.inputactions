@@ -7,8 +7,17 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "5cd9695f-9630-4bfc-a7d6-0c3fab2629c4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Aim",
+                    "type": "Value",
+                    "id": "d5f12d97-abf5-41ec-8dd9-9befb405ece9",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -55,7 +64,7 @@
                 {
                     "name": "Keyboard",
                     "id": "54b45350-bf5e-4b3b-a19c-450d26445dff",
-                    "path": "2DVector(mode=2)",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -121,7 +130,7 @@
                 {
                     "name": "Up",
                     "id": "ad0b44c1-75bc-4972-a07f-4a6bd2d9feb8",
-                    "path": "",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -132,7 +141,7 @@
                 {
                     "name": "Down",
                     "id": "850dae5a-4ea8-459e-af14-8b47e3bf4b21",
-                    "path": "",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -247,6 +256,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ToggleShop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "341eda63-d4f5-4796-b27c-1f454fe8e66a",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
