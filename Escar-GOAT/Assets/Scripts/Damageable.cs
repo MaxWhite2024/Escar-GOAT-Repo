@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum DamageableType { Player, Enemy};
 
@@ -44,7 +45,7 @@ public class Damageable : MonoBehaviour
     {
         if (type == DamageableType.Player)
         {
-            //Add player death functionality here
+            SceneManager.LoadScene("GameOver");
         }
         else
         {
