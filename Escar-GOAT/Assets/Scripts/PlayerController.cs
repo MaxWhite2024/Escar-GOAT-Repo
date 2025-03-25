@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float tempFireRate = 0.0f;
     [SerializeField] private GameObject playerBulletPrefab;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private SpriteRenderer playerSprite;
 
     void Start()
     {
@@ -34,6 +35,16 @@ public class PlayerController : MonoBehaviour
 
         //update aimDirection based on CursorPosition and player position
         aimDirection = input.MousePos - (Vector2)gameObject.transform.position;
+
+        //swap player x scale based on aimDirection
+        if (aimDirection.x >= 0)
+        {
+            playerSprite.flipX = false;
+        }
+        else
+        {
+            playerSprite.flipX = true;
+        }
 
         //rotate player weapon based on aimDirection
         playerWeaponTransform.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg));
