@@ -203,4 +203,21 @@ public class UIBehavior : MonoBehaviour
     {
         Time.timeScale = 1.0f;
     }
+
+    public void ToCosmetics()
+    {
+        //close shop
+
+        //open cosmetics
+    }
+
+    public void ToPremium()
+    {
+
+    }
+
+    public void ToShop()
+    {
+        
+    }
 }
