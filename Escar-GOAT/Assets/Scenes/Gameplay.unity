@@ -151,12 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5386620664999ee43a27a8caed36d1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 4.5
-  waveSize: 3
+  spawnTimer: 5
+  waveSize: 4
   enemiesAddedEachWave: 1.25
   enemyHealthAddedEachWave: 0.2
   enemyDamageAddedEachWave: 0
-  spawnRadius: 1
+  spawnRadius: 2
   enemyPrefab: {fileID: 1517545464392101253, guid: cd7e952db18846a419230b9b67f846dc, type: 3}
   timerUI: {fileID: 0}
   player: {fileID: 0}

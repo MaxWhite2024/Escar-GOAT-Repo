@@ -6,14 +6,14 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
     //player health
-    public static int playerHealth = 5;
+    public static int playerHealth = 1;
 
     //base player stats
     public static float movementSpeed = 2f; //SPEED
     public static int numberOfProjectilesPerShot = 1; //NUMBER
     public static int shotsPerSecond = 1; //ATTACK
     public static float coinPickupRange = 3f; //INDUCTION
-    public static int maxHealth = 3; //LOVE
+    public static int maxHealth = 1; //LOVE
 
     //upgrade cost stats
     public static int speedUpgradeCost = 1;
@@ -45,7 +45,7 @@ public class PlayerStats : ScriptableObject
         numberOfProjectilesPerShot = 1;
         shotsPerSecond = 1;
         coinPickupRange = 3f;
-        maxHealth = 3;
+        maxHealth = 1;
 
         speedUpgradeCost = 1;
         numberUpgradeCost = 1;
