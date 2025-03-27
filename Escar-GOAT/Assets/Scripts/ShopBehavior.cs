@@ -7,7 +7,7 @@ public class ShopBehavior : MonoBehaviour
 {
     public enum UpgradeType
     {
-        SPEED, NUMBER, ATTACK, INDUCTION, LOVE
+        SPEED, NUMBER, ATTACK, INDUCTION, LIFE
     };
 
     private void UpgradeStat(UpgradeType upgradeTypeToUpgrade)
@@ -75,7 +75,7 @@ public class ShopBehavior : MonoBehaviour
                 }
 
                 break;
-            case UpgradeType.LOVE:
+            case UpgradeType.LIFE:
                 //if player has enough money to buy induction upgrade,...
                 if (PlayerStats.currencyCount >= PlayerStats.loveUpgradeCost)
                 {
@@ -83,7 +83,7 @@ public class ShopBehavior : MonoBehaviour
                     PlayerStats.currencyCount -= PlayerStats.loveUpgradeCost;
 
                     //upgrade induction
-                    PlayerStats.maxHealth += 2;
+                    PlayerStats.playerHealth += 1;
 
                     //increase induction upgrade cost
                     PlayerStats.loveUpgradeCost *= 2;
@@ -118,6 +118,6 @@ public class ShopBehavior : MonoBehaviour
 
     public void UpgradeLove()
     {
-        UpgradeStat(UpgradeType.LOVE);
+        UpgradeStat(UpgradeType.LIFE);
     }
 }
