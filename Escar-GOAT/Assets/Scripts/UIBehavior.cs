@@ -12,6 +12,7 @@ public class UIBehavior : MonoBehaviour
 
     [Header("UI Variables")]
     [SerializeField] private TextMeshProUGUI coinText;
+    [SerializeField] private TextMeshProUGUI shellText;
     [SerializeField] private TextMeshProUGUI playerHealthText;
     private bool isShopOpen = false;
     [SerializeField] private List<GameObject> openedShopUI;
@@ -51,6 +52,16 @@ public class UIBehavior : MonoBehaviour
             anyLogWarnings = true;
         }
 
+        //if shellText has NOT been assigned,...
+        if (!shellText)
+        {
+            //Log a warning
+            Debug.LogWarning("Shell Text has not been assigned to Canvas | Please assign a TextMeshProUGUI component to the Shell Text variable");
+
+            //make anyLogWarnings true
+            anyLogWarnings = true;
+        }
+
         //if userInput has NOT been assigned,...
         if (!userInput)
         {
@@ -85,7 +96,10 @@ public class UIBehavior : MonoBehaviour
         //update coinText with currencyCount
         coinText.text = "Coins: " + PlayerStats.currencyCount.ToString();
 
-        //update player health with = 
+        //update shellText with currencyCount
+        shellText.text = "Shells: " + PlayerStats.shellCount.ToString();
+
+        //update player health with 
         playerHealthText.text = "Health: " + PlayerStats.playerHealth.ToString();
 
         //update upgrade cost texts
@@ -100,19 +114,6 @@ public class UIBehavior : MonoBehaviour
         {
             ToggleShop();
         }
-
-        //when player presses down
-        //move selection down
-
-        //when player presses up
-        //move selection up
-
-        //when player presses select
-        //select the current UI item
-
-        //when player deselects 
-        //exit shop
-        //ExitShop();
     }
 
     private void ToggleShop()
@@ -201,5 +202,20 @@ public class UIBehavior : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1.0f;
+    }
+
+    public void Buy5Shells()
+    {
+        PlayerStats.shellCount += 5;
+    }
+
+    public void Buy10Shells()
+    {
+        PlayerStats.shellCount += 10;
+    }
+
+    public void Buy50Shells()
+    {
+        PlayerStats.shellCount += 50;
     }
 }
