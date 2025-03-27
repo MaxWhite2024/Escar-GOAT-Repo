@@ -41,7 +41,7 @@ public class PlayerStats : ScriptableObject
     /// </summary>
     public static void ResetPlayer()
     {
-        movementSpeed = 1;
+        movementSpeed = 2;
         numberOfProjectilesPerShot = 1;
         shotsPerSecond = 1;
         coinPickupRange = 3f;

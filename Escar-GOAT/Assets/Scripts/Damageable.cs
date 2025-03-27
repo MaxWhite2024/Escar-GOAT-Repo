@@ -23,6 +23,11 @@ public class Damageable : MonoBehaviour
     private void CollisionLogic(Collider2D collision)
     {
 
+        if(collision.gameObject.layer == this.gameObject.layer)
+        {
+            return;
+        }
+
         DamageSource damage = collision.GetComponent<DamageSource>();
         if (damage == null)
         {

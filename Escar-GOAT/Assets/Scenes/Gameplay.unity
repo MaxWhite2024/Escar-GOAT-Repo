@@ -155,7 +155,8 @@ MonoBehaviour:
   waveSize: 3
   enemiesAddedEachWave: 1.25
   enemyHealthAddedEachWave: 0.2
-  enemyDamageAddedEachWave: 0.2
+  enemyDamageAddedEachWave: 0
+  spawnRadius: 1
   enemyPrefab: {fileID: 1517545464392101253, guid: cd7e952db18846a419230b9b67f846dc, type: 3}
   timerUI: {fileID: 0}
   player: {fileID: 0}
@@ -389,6 +390,10 @@ PrefabInstance:
     - target: {fileID: 1352341321354470588, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6792524254400340179, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+      propertyPath: health
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
