@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public UserInput input; // Include the input system
     [HideInInspector] public Vector2 axis;
 
@@ -19,14 +19,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        if(input == null){ // Referencing the input system
+        if (input == null)
+        {
+            // Referencing the input system
             input = GameObject.Find("Input Manager").GetComponent<UserInput>();
         }
 
         PlayerStats.ResetPlayer();
     }
 
-    
 
     // Update is called once per frame
     void Update()
@@ -47,10 +48,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //rotate player weapon based on aimDirection
-        playerWeaponTransform.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg));
+        playerWeaponTransform.rotation =
+            Quaternion.Euler(new Vector3(0f, 0f, Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg));
 
         //if fire rate time has elapsed,...
-        if(tempFireRate >= (1f / PlayerStats.shotsPerSecond))
+        if (tempFireRate >= (1f / PlayerStats.shotsPerSecond))
         {
             //fire a projectile
             GameObject projectileInstance = Instantiate(playerBulletPrefab, firePoint.position, Quaternion.identity);
@@ -69,7 +71,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(axis.x * PlayerStats.movementSpeed, axis.y * PlayerStats.movementSpeed); // This moves the player
+        rb.velocity =
+            new Vector2(axis.x * PlayerStats.movementSpeed,
+                axis.y * PlayerStats.movementSpeed); // This moves the player
     }
 
     void OnTriggerEnter2D(Collider2D other)
