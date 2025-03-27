@@ -120,4 +120,19 @@ public class ShopBehavior : MonoBehaviour
     {
         UpgradeStat(UpgradeType.LOVE);
     }
+
+    public void Buy5Shells()
+    {
+        PlayerStats.shellCount += 5;
+    }
+
+    public void Buy10Shells()
+    {
+        PlayerStats.shellCount += 10;
+    }
+
+    public void Buy50Shells()
+    {
+        PlayerStats.shellCount += 50;
+    }
 }
