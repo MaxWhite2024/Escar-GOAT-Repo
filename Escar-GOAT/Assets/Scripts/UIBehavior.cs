@@ -102,7 +102,7 @@ public class UIBehavior : MonoBehaviour
         shellText.text = "Shells: " + PlayerStats.shellCount.ToString();
 
         //update player health with 
-        playerHealthText.text = "Health: " + PlayerStats.playerHealth.ToString();
+        playerHealthText.text = "Lives: " + PlayerStats.playerHealth.ToString();
 
         //update upgrade cost texts
         speedUpgradeText.text = PlayerStats.speedUpgradeCost.ToString();

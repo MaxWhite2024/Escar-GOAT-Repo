@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
             //fire a projectile
             GameObject projectileInstance = Instantiate(playerBulletPrefab, firePoint.position, Quaternion.identity);
             projectileInstance.GetComponent<ProjectileBehavior>().direction = aimDirection;
+            projectileInstance.GetComponent<DamageSource>().damage = PlayerStats.projectileDamage;
 
             //reset tempFireRate
             tempFireRate = 0f;

@@ -7,7 +7,7 @@ public class ShopBehavior : MonoBehaviour
 {
     public enum UpgradeType
     {
-        SPEED, NUMBER, ATTACK, INDUCTION, LIFE
+        SPEED, NUMBER, ATTACK, INCOME, LIFE
     };
 
     private void UpgradeStat(UpgradeType upgradeTypeToUpgrade)
@@ -38,7 +38,7 @@ public class ShopBehavior : MonoBehaviour
                     PlayerStats.currencyCount -= PlayerStats.numberUpgradeCost;
 
                     //upgrade speed
-                    PlayerStats.numberOfProjectilesPerShot += 2;
+                    PlayerStats.shotsPerSecond += 2;
 
                     //increase number upgrade cost
                     PlayerStats.numberUpgradeCost *= 2;
@@ -52,40 +52,40 @@ public class ShopBehavior : MonoBehaviour
                     //decrement player currency
                     PlayerStats.currencyCount -= PlayerStats.attackUpgradeCost;
 
-                    //upgrade speed
-                    PlayerStats.shotsPerSecond += 2;
+                    //upgrade damage
+                    PlayerStats.projectileDamage += 1;
 
                     //increase attack upgrade cost
                     PlayerStats.attackUpgradeCost *= 2;
                 }
 
                 break;
-            case UpgradeType.INDUCTION:
-                //if player has enough money to buy induction upgrade,...
+            case UpgradeType.INCOME:
+                //if player has enough money to buy income upgrade,...
                 if (PlayerStats.currencyCount >= PlayerStats.inductionUpgradeCost)
                 {
                     //decrement player currency
                     PlayerStats.currencyCount -= PlayerStats.inductionUpgradeCost;
 
-                    //upgrade induction
+                    //upgrade income
                     PlayerStats.coinPickupRange += 2;
 
-                    //increase induction upgrade cost
+                    //increase income upgrade cost
                     PlayerStats.inductionUpgradeCost *= 2;
                 }
 
                 break;
             case UpgradeType.LIFE:
-                //if player has enough money to buy induction upgrade,...
+                //if player has enough money to buy income upgrade,...
                 if (PlayerStats.currencyCount >= PlayerStats.loveUpgradeCost)
                 {
                     //decrement player currency
                     PlayerStats.currencyCount -= PlayerStats.loveUpgradeCost;
 
-                    //upgrade induction
+                    //upgrade income
                     PlayerStats.playerHealth += 1;
 
-                    //increase induction upgrade cost
+                    //increase income upgrade cost
                     PlayerStats.loveUpgradeCost *= 2;
                 }
 
@@ -113,7 +113,7 @@ public class ShopBehavior : MonoBehaviour
 
     public void UpgradeInduction()
     {
-        UpgradeStat(UpgradeType.INDUCTION);
+        UpgradeStat(UpgradeType.INCOME);
     }
 
     public void UpgradeLove()
