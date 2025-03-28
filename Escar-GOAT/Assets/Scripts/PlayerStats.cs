@@ -6,21 +6,21 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
     //player health
-    public static int playerHealth = 5;
+    public static int playerHealth;
 
     //base player stats
-    public static float movementSpeed = 2f; //SPEED
-    public static int numberOfProjectilesPerShot = 1; //NUMBER
-    public static int shotsPerSecond = 1; //ATTACK
-    public static float coinPickupRange = 3f; //INDUCTION
-    public static int maxHealth = 3; //LOVE
+    public static float movementSpeed; //SPEED
+    public static int numberOfProjectilesPerShot; //NUMBER
+    public static int shotsPerSecond; //ATTACK
+    public static float coinPickupRange; //INDUCTION
+    public static int maxHealth; //LOVE
 
     //upgrade cost stats
-    public static int speedUpgradeCost = 1;
-    public static int numberUpgradeCost = 1;
-    public static int attackUpgradeCost = 1;
-    public static int inductionUpgradeCost = 1;
-    public static int loveUpgradeCost = 1;
+    public static int speedUpgradeCost;
+    public static int numberUpgradeCost;
+    public static int attackUpgradeCost;
+    public static int inductionUpgradeCost;
+    public static int loveUpgradeCost;
 
     //player coins and shells
     public static int currencyCount = 0;
@@ -33,7 +33,7 @@ public class PlayerStats : ScriptableObject
         "Number = " + numberOfProjectilesPerShot + ". | " +
         "Attack = " + shotsPerSecond + ". | " +
         "Induction = " + coinPickupRange + ". | " +
-        "love = " + maxHealth + ".SS"
+        "love = " + playerHealth + ".SS"
         );
     }
 
@@ -42,19 +42,21 @@ public class PlayerStats : ScriptableObject
     /// </summary>
     public static void ResetPlayer()
     {
-        movementSpeed = 1;
+        playerHealth = 1;
+
+        movementSpeed = 2;
         numberOfProjectilesPerShot = 1;
         shotsPerSecond = 1;
         coinPickupRange = 3f;
-        maxHealth = 3;
 
         speedUpgradeCost = 1;
         numberUpgradeCost = 1;
         attackUpgradeCost = 1;
         inductionUpgradeCost = 1;
-        loveUpgradeCost = 1;
+        loveUpgradeCost = 10;
             
         currencyCount = 0;
     }
+
 }
 

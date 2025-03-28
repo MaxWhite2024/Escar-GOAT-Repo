@@ -151,11 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5386620664999ee43a27a8caed36d1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 4.5
-  waveSize: 3
+  spawnTimer: 5
+  waveSize: 4
   enemiesAddedEachWave: 1.25
   enemyHealthAddedEachWave: 0.2
-  enemyDamageAddedEachWave: 0.2
+  enemyDamageAddedEachWave: 0
+  spawnRadius: 2
   enemyPrefab: {fileID: 1517545464392101253, guid: cd7e952db18846a419230b9b67f846dc, type: 3}
   timerUI: {fileID: 0}
   player: {fileID: 0}
@@ -390,6 +391,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6792524254400340179, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089670172887472979, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -407,6 +416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2512912349382037542, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_Name
+      value: Life Button
+      objectReference: {fileID: 0}
     - target: {fileID: 2579488182900423996, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
       propertyPath: userInput
       value: 
@@ -415,6 +428,10 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 395694345}
+    - target: {fileID: 4919661926261622652, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_text
+      value: +Life
+      objectReference: {fileID: 0}
     - target: {fileID: 8309429753704110558, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
       propertyPath: m_Pivot.x
       value: 0

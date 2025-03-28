@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float enemiesAddedEachWave;
     [SerializeField] private float enemyHealthAddedEachWave;
     [SerializeField] private float enemyDamageAddedEachWave;
+    [SerializeField] private float spawnRadius;
 
     [Header("Objects To Reference")]
     [SerializeField] private GameObject enemyPrefab;
@@ -72,7 +73,11 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < (int)waveSize; i++)
         {
-            GameObject enemy = Instantiate(enemyPrefab, spawnLocations[Random.Range(0, spawnLocations.Count)].position, Quaternion.identity);
+            Vector3 SpawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
+            SpawnLocation.x += Random.Range(-spawnRadius, spawnRadius);
+            SpawnLocation.y += Random.Range(-spawnRadius, spawnRadius);
+
+            GameObject enemy = Instantiate(enemyPrefab, SpawnLocation, Quaternion.identity);
             enemy.GetComponent<Damageable>().health += (int)addedHealth;
             enemy.GetComponent<DamageSource>().damage += (int)addedDamage;
             enemy.GetComponent<Enemy>().manager = this;

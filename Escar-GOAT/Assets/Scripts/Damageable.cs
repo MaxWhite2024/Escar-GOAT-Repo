@@ -17,11 +17,22 @@ public class Damageable : MonoBehaviour
         if (type == DamageableType.Player)
         {
             //set PlayerStats to equal health
-            PlayerStats.playerHealth = health;
+            health = PlayerStats.playerHealth;
         }
     }
+
+    private void Update()
+    {
+        health = PlayerStats.playerHealth;
+    }
+
     private void CollisionLogic(Collider2D collision)
     {
+
+        if(collision.gameObject.layer == this.gameObject.layer)
+        {
+            return;
+        }
 
         DamageSource damage = collision.GetComponent<DamageSource>();
         if (damage == null)
