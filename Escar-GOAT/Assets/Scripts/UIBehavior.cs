@@ -14,9 +14,11 @@ public class UIBehavior : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI shellText;
     [SerializeField] private TextMeshProUGUI playerHealthText;
-    private bool isShopOpen = false;
-    [SerializeField] private List<GameObject> openedShopUI;
-    [SerializeField] private List<GameObject> closedShopUI;
+    private bool isMenuOpen = false;
+    [SerializeField] private GameObject shopUI;
+    [SerializeField] private GameObject cosmeticsMenuUI;
+    [SerializeField] private GameObject premiumShopUI;
+    [SerializeField] private GameObject closedShopUI;
 
     [Header("Upgrade Text Variables")]
     [SerializeField] private TextMeshProUGUI speedUpgradeText;
@@ -118,8 +120,8 @@ public class UIBehavior : MonoBehaviour
 
     private void ToggleShop()
     {
-        //if shop is open,...
-        if (isShopOpen)
+        //if menu is open,...
+        if (isMenuOpen)
         {
             //exit the shop
             ExitShop();
@@ -137,25 +139,21 @@ public class UIBehavior : MonoBehaviour
         //Resume the game
         Resume();
 
-        //if shopMenu is active,...
-        if (isShopOpen)
+        //if isMenuOpen is active,...
+        if (isMenuOpen)
         {
-            //make all openedShopUI NOT active
-            for (int i = 0; i < openedShopUI.Count; i++)
-            {
-                openedShopUI[i].SetActive(false);
-            }
+            //make all menus NOT active
+            shopUI.SetActive(false);
+            cosmeticsMenuUI.SetActive(false);
+            premiumShopUI.SetActive(false);
 
-            //make all closedShopUI active
-            for (int i = 0; i < closedShopUI.Count; i++)
-            {
-                closedShopUI[i].SetActive(true);
-            }
+            //make closedShopUI active
+            closedShopUI.SetActive(true);
 
-            //set isShopOpen to false
-            isShopOpen = false;
+            //set isMenuOpen to false
+            isMenuOpen = false;
         }
-        //else shopMenu is NOT active,...
+        //else isMenuOpen is NOT active,...
         else
         {
             //do nothing
@@ -168,29 +166,23 @@ public class UIBehavior : MonoBehaviour
         //pause the game
         Pause();
 
-        //if shopMenu is active,...
-        if(isShopOpen)
+        //if isMenuOpen is active,...
+        if (isMenuOpen)
         {
             //do nothing
             return;
         }
-        //else shopMenu is NOT active,...
+        //else isMenuOpen is NOT active,...
         else
         {
-            //make all openedShopUI active
-            for (int i = 0; i < openedShopUI.Count; i++)
-            {
-                openedShopUI[i].SetActive(true);
-            }
+            //make shopUI active
+            shopUI.SetActive(true);
 
-            //make all closedShopUI NOT active
-            for (int i = 0; i < closedShopUI.Count; i++)
-            {
-                closedShopUI[i].SetActive(false);
-            }
+            //make closedShopUI NOT active
+            closedShopUI.SetActive(false);
 
-            //set isShopOpen to true
-            isShopOpen = true;
+            //set isMenuOpen to true
+            isMenuOpen = true;
         }
     }
 
@@ -206,18 +198,43 @@ public class UIBehavior : MonoBehaviour
 
     public void ToCosmetics()
     {
-        //close shop
+        //if isMenuOpen is active,...
+        if (isMenuOpen)
+        {
+            //close shop
+            shopUI.SetActive(false);
 
-        //open cosmetics
+            //open cosmetics
+            cosmeticsMenuUI.SetActive(true);
+        }
     }
 
     public void ToPremium()
     {
+        //if isMenuOpen is active,...
+        if (isMenuOpen)
+        {
+            //close shop
+            shopUI.SetActive(false);
 
+            //open premium shop
+            premiumShopUI.SetActive(true);
+        }
     }
 
     public void ToShop()
     {
-        
+        //if isMenuOpen is active,...
+        if (isMenuOpen)
+        {
+            //close cosmetics
+            cosmeticsMenuUI.SetActive(false);
+
+            //close premium shop
+            premiumShopUI.SetActive(false);
+
+            //open shop
+            shopUI.SetActive(true);
+        }
     }
 }
