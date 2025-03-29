@@ -13,6 +13,7 @@ public class UIBehavior : MonoBehaviour
     [Header("UI Variables")]
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI shellText;
+    [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI playerHealthText;
     private bool isMenuOpen = false;
     [SerializeField] private GameObject shopUI;
@@ -64,6 +65,16 @@ public class UIBehavior : MonoBehaviour
             anyLogWarnings = true;
         }
 
+        //if scoreText has NOT been assigned,...
+        if (!scoreText)
+        {
+            //Log a warning
+            Debug.LogWarning("Shell Text has not been assigned to Canvas | Please assign a TextMeshProUGUI component to the Shell Text variable");
+
+            //make anyLogWarnings true
+            anyLogWarnings = true;
+        }
+
         //if userInput has NOT been assigned,...
         if (!userInput)
         {
@@ -100,6 +111,9 @@ public class UIBehavior : MonoBehaviour
 
         //update shellText with currencyCount
         shellText.text = "Shells: " + PlayerStats.shellCount.ToString();
+
+        //update scoreText with currencyCount
+        scoreText.text = "Score: " + PlayerStats.scoreCount.ToString();
 
         //update player health with 
         playerHealthText.text = "Lives: " + PlayerStats.playerHealth.ToString();
