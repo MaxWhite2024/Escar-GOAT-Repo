@@ -9,11 +9,13 @@ public class UIBehavior : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
     [SerializeField] private UserInput userInput;
+    [SerializeField] private HighscoreObject highScore;
 
     [Header("UI Variables")]
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI shellText;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI highscoreText;
     [SerializeField] private TextMeshProUGUI playerHealthText;
     private bool isMenuOpen = false;
     [SerializeField] private GameObject shopUI;
@@ -69,7 +71,17 @@ public class UIBehavior : MonoBehaviour
         if (!scoreText)
         {
             //Log a warning
-            Debug.LogWarning("Shell Text has not been assigned to Canvas | Please assign a TextMeshProUGUI component to the Shell Text variable");
+            Debug.LogWarning("Score Text has not been assigned to Canvas | Please assign a TextMeshProUGUI component to the Shell Text variable");
+
+            //make anyLogWarnings true
+            anyLogWarnings = true;
+        }
+
+        //if scoreText has NOT been assigned,...
+        if (!highscoreText)
+        {
+            //Log a warning
+            Debug.LogWarning("Highscore Text has not been assigned to Canvas | Please assign a TextMeshProUGUI component to the Shell Text variable");
 
             //make anyLogWarnings true
             anyLogWarnings = true;
@@ -114,6 +126,9 @@ public class UIBehavior : MonoBehaviour
 
         //update scoreText with currencyCount
         scoreText.text = "Score: " + PlayerStats.scoreCount.ToString();
+
+        //update highscoreText with currencyCount
+        highscoreText.text = "Highscore: " + highScore.highscore.ToString();
 
         //update player health with 
         playerHealthText.text = "Lives: " + PlayerStats.playerHealth.ToString();

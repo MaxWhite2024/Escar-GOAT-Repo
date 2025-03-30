@@ -406,6 +406,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+--- !u!114 &1404798407 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2075193665383692194, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+  m_PrefabInstance: {fileID: 1544698691}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1544698691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -423,6 +434,10 @@ PrefabInstance:
       value: Life Button
       objectReference: {fileID: 0}
     - target: {fileID: 2579488182900423996, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: highScore
+      value: 
+      objectReference: {fileID: 11400000, guid: e5451911438e2479c9a8523c5631671d, type: 2}
+    - target: {fileID: 2579488182900423996, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 2121262417}
@@ -430,6 +445,10 @@ PrefabInstance:
       propertyPath: userInput
       value: 
       objectReference: {fileID: 1084694133}
+    - target: {fileID: 2579488182900423996, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: highscoreText
+      value: 
+      objectReference: {fileID: 1404798407}
     - target: {fileID: 2579488182900423996, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
       propertyPath: playerController
       value: 
@@ -523,6 +542,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+--- !u!1 &1835384698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1835384700}
+  - component: {fileID: 1835384699}
+  m_Layer: 0
+  m_Name: Highscore Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1835384699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835384698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e497b2426af12404ca44d2becc6a89cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highScore: {fileID: 11400000, guid: e5451911438e2479c9a8523c5631671d, type: 2}
+--- !u!4 &1835384700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835384698}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2121262417 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8834453978132689872, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
@@ -543,3 +607,4 @@ SceneRoots:
   - {fileID: 1544698691}
   - {fileID: 1087973509}
   - {fileID: 12123317}
+  - {fileID: 1835384700}
