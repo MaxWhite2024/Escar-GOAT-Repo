@@ -14,6 +14,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float enemyHealthAddedEachWave;
     [SerializeField] private float enemyDamageAddedEachWave;
     [SerializeField] private float spawnRadius;
+    [SerializeField] private int initialWaveScore = 10;
+    [SerializeField] private int waveScoreMultiplier = 1;
 
     [Header("Objects To Reference")]
     [SerializeField] private GameObject enemyPrefab;
@@ -66,6 +68,7 @@ public class EnemyManager : MonoBehaviour
         {
             SpawnEnemies();
             timer = spawnTimer;
+            PlayerStats.scoreCount += initialWaveScore * waveScoreMultiplier;
         }
     }
 

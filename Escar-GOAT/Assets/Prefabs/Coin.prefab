@@ -134,5 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinSpeed: 2
+  coinAcceleration: 4
+  accelerationPower: 3
+  maxVelocity: 12
   coinDespawnTime: 20
   player: {fileID: 0}

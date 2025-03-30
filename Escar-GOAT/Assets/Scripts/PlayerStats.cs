@@ -25,6 +25,8 @@ public class PlayerStats : ScriptableObject
     //player coins and shells
     public static int currencyCount = 0;
     public static int shellCount = 0;
+    public static int scoreCount = 0;
+    public static int highscoreCount = 0;
 
     public static void PrintStats()
     {
@@ -55,6 +57,8 @@ public class PlayerStats : ScriptableObject
         inductionUpgradeCost = 1;
         loveUpgradeCost = 10;
             
+        scoreCount = 0;
+        highscoreCount = 0;
         currencyCount = 0;
     }
 
