@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private Damageable enemyHealth;
     private int maxHealth;
+    private SpriteRenderer sprite;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +38,14 @@ public class Enemy : MonoBehaviour
             enemyHealth = GetComponent<Damageable>();
 
         maxHealth = enemyHealth.health;
+        sprite = GetComponent <SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         MoveToPlayer();
+        sprite.flipX = (playerPos.x < transform.position.x);
     }
 
     private void MoveToPlayer()

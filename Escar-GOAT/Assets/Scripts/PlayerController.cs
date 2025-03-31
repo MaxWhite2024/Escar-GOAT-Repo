@@ -13,8 +13,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform playerWeaponTransform;
     private float tempFireRate = 0.0f;
     [SerializeField] private GameObject playerBulletPrefab;
+    [SerializeField] private GameObject playerGun;
     [SerializeField] private Transform firePoint;
     [SerializeField] private SpriteRenderer playerSprite;
+    private SpriteRenderer gunSprite;
 
     void Start()
     {
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
             input = GameObject.Find("Input Manager").GetComponent<UserInput>();
         }
 
+        gunSprite = playerGun.GetComponent<SpriteRenderer>();
         PlayerStats.ResetPlayer();
     }
 
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour
         //rotate player weapon based on aimDirection
         playerWeaponTransform.rotation =
             Quaternion.Euler(new Vector3(0f, 0f, Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg));
+        gunSprite.flipY = aimDirection.x < 0;
 
         //if fire rate time has elapsed,...
         if (tempFireRate >= (1f / PlayerStats.shotsPerSecond))
