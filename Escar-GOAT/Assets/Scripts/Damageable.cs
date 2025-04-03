@@ -23,7 +23,10 @@ public class Damageable : MonoBehaviour
 
     private void Update()
     {
-        health = PlayerStats.playerHealth;
+        if (type == DamageableType.Player) 
+        { 
+            health = PlayerStats.playerHealth;
+        }
     }
 
     private void CollisionLogic(Collider2D collision)

@@ -58,7 +58,6 @@ public class PlayerStats : ScriptableObject
         loveUpgradeCost = 10;
             
         scoreCount = 0;
-        highscoreCount = 0;
         currencyCount = 0;
     }
 

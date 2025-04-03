@@ -81,9 +81,11 @@ public class EnemyManager : MonoBehaviour
             SpawnLocation.y += Random.Range(-spawnRadius, spawnRadius);
 
             GameObject enemy = Instantiate(enemyPrefab, SpawnLocation, Quaternion.identity);
-            enemy.GetComponent<Damageable>().health += (int)addedHealth;
-            enemy.GetComponent<DamageSource>().damage += (int)addedDamage;
+            
             enemy.GetComponent<Enemy>().manager = this;
+            enemy.GetComponent<Enemy>().SetHealth((int)addedHealth);
+            enemy.GetComponent<DamageSource>().damage += (int)addedDamage;
+
             enemies.Add(enemy);
         }
 

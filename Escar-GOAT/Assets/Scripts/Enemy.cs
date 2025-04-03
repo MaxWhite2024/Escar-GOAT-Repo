@@ -17,12 +17,12 @@ public class Enemy : MonoBehaviour
     private Vector3 playerPos;
     private Rigidbody2D rb;
     private Damageable enemyHealth;
-    private int maxHealth;
+    public int maxHealth;
     private SpriteRenderer sprite;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (player == null)
         {
@@ -37,7 +37,8 @@ public class Enemy : MonoBehaviour
         if (enemyHealth == null) 
             enemyHealth = GetComponent<Damageable>();
 
-        maxHealth = enemyHealth.health;
+        maxHealth = 1;
+        enemyHealth.health = maxHealth;
         sprite = GetComponent <SpriteRenderer>();
     }
 
@@ -46,6 +47,12 @@ public class Enemy : MonoBehaviour
     {
         MoveToPlayer();
         sprite.flipX = (playerPos.x < transform.position.x);
+    }
+
+    public void SetHealth(int health)
+    {
+        maxHealth = health;
+        enemyHealth.health = health;
     }
 
     private void MoveToPlayer()
