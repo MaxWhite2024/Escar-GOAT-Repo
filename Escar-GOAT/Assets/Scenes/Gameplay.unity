@@ -484,6 +484,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+--- !u!212 &1402772040 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5095145626453877485, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+  m_PrefabInstance: {fileID: 1095346591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1404798407 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2075193665383692194, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
@@ -559,6 +564,10 @@ PrefabInstance:
       propertyPath: m_text
       value: +Size
       objectReference: {fileID: 0}
+    - target: {fileID: 8182584344381598096, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: playerEquippedCosmeticImage
+      value: 
+      objectReference: {fileID: 1402772040}
     - target: {fileID: 8309429753704110558, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
