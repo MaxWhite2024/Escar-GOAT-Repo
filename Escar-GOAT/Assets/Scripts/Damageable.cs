@@ -44,8 +44,6 @@ public class Damageable : MonoBehaviour
             return;
         }
 
-        Debug.Log(health);
-
         //if this damageableType is the player,...
         if (type == DamageableType.Player)
         {
@@ -53,6 +51,7 @@ public class Damageable : MonoBehaviour
 
             //update PlayerStats to equal health
             PlayerStats.playerHealth = health;
+
         }
         else
         {
@@ -70,6 +69,11 @@ public class Damageable : MonoBehaviour
         if(health <= 0)
         {
             Death();
+        }
+        else if(type == DamageableType.Player)
+        {
+            EnemyManager manager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+            manager.PlayerHit();
         }
         
     }

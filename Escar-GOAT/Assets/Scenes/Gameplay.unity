@@ -159,7 +159,9 @@ MonoBehaviour:
   spawnRadius: 2
   initialWaveScore: 10
   waveScoreMultiplier: 1
+  smallEnemySpawnChance: 10
   enemyPrefab: {fileID: 1517545464392101253, guid: cd7e952db18846a419230b9b67f846dc, type: 3}
+  smallEnemyPrefab: {fileID: 1517545464392101253, guid: 7c6c6002217334a4c826219763a43842, type: 3}
   timerUI: {fileID: 0}
   player: {fileID: 0}
   spawnLocations: []
