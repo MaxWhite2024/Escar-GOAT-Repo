@@ -121,6 +121,7 @@ public class ShopBehavior : MonoBehaviour
         UpgradeStat(UpgradeType.LIFE);
     }
 
+    //Premium Shop Functions
     public void Buy5Shells()
     {
         PlayerStats.shellCount += 5;
@@ -134,5 +135,51 @@ public class ShopBehavior : MonoBehaviour
     public void Buy50Shells()
     {
         PlayerStats.shellCount += 50;
+    }
+
+    //Cosmetic Shop Functions
+    public void CycleCosmeticsRight()
+    {
+        //change cosmetic shown
+
+        //show the correct cosmetic button
+        HandleCosmeticButtons();
+    }
+
+    public void CycleCosmeticsLeft()
+    {
+        //change cosmetic shown
+
+        //show the correct cosmetic button
+        HandleCosmeticButtons();
+    }
+
+    private void HandleCosmeticButtons()
+    {
+        //if cosmetic is owned,... 
+        //show the "eqiup" button
+
+        //else cosmetic is NOT owned,...
+        //show the "buy" button
+    }
+
+    public void BuyCurrentCosmetic()
+    {
+        //if player has enough shells to buy current cosmetic,...
+        //add the cosmetic item to the player's owned cosmetics
+        //subtract the cost from the player's shells
+
+        //change the "buy" button to the "equip" button
+        HandleCosmeticButtons();
+
+        //else,...
+        //return
+    }
+
+    public void EquipCurrentCosmetic()
+    {
+        //turn off old cosmetic
+
+        //turn on current cosmetic
     }
 }
