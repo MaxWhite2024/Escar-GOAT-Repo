@@ -10,6 +10,7 @@ public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] RectTransform dialogueBox;
     [SerializeField] TMP_Text dialogueText;
+    [SerializeField] DialogueSet startingDialogueSet;
 
     private Vector2 dialogueBoxEndPos;
 
@@ -28,24 +29,39 @@ public class DialogueSystem : MonoBehaviour
     {
         dialogueBoxEndPos = dialogueBox.anchoredPosition;
         dialogueBox.gameObject.SetActive(false);
-        DisplayDialogue(DialogueType.HighScore);
+        DisplayDialogue(startingDialogueSet);
     }
 
-    public void DisplayDialogue(DialogueType dialogueType)
+    public void DisplayDialogue(DialogueSet dialogueSet)
     {
+        int dialogueIndex = UnityEngine.Random.Range(0, dialogueSet.dialogueGroups.Length);
+
         dialogueBox.anchoredPosition = new Vector2(dialogueBoxEndPos.x, -dialogueBox.sizeDelta.y);
         dialogueBox.gameObject.SetActive(true);
+        OpenDialogueBox();
 
-        string textToDisplay = dialogueText.text;
-        //dialogueText.text = "";
+        Sequence fullDialogueSequence = DOTween.Sequence();
+
+        for (int i = 0; i < dialogueSet.dialogueGroups[dialogueIndex].dialogueLines.Length; i++)
+        {
+            string textToDisplay = dialogueSet.dialogueGroups[dialogueIndex].dialogueLines[i];
+
+            fullDialogueSequence.AppendCallback(() => {
+                DisplayDialogueLine(textToDisplay); 
+            });
+
+            fullDialogueSequence.AppendInterval(4);
+        }
+
+        fullDialogueSequence.AppendCallback(CloseDialogueBox);
+    }
+
+    private void DisplayDialogueLine(string textToDisplay)
+    {
+
+        dialogueText.text = textToDisplay;
 
         DOTweenTMPAnimator textAnimator = new DOTweenTMPAnimator(dialogueText);
-
-        Sequence dialogueSequence = DOTween.Sequence();
-        dialogueSequence.Append(dialogueBox.DOAnchorPos(dialogueBoxEndPos, 0.66f, false).SetEase(Ease.OutBack));
-
-        //Vector3 currCharOffset = textAnimator.GetCharOffset(0);
-        //dialogueSequence.Join(textAnimator.DOPunchCharOffset(0, currCharOffset + new Vector3(0, 30, 0), 0.5f));
 
         for (int i = 0; i < textAnimator.textInfo.characterCount; ++i)
         {
@@ -54,19 +70,31 @@ public class DialogueSystem : MonoBehaviour
             textAnimator.SetCharOffset(i, new Vector3(100, 0, 0));
         }
 
-
+        Sequence dialogueLineSequence = DOTween.Sequence();
         for (int i = 0; i < textAnimator.textInfo.characterCount; ++i)
         {
-            if (!textAnimator.textInfo.characterInfo[i].isVisible) continue;
-            Vector3 currCharOffset = textAnimator.GetCharOffset(i);
-            dialogueSequence.Insert(0.33f + i * 0.02f,
-                textAnimator.DOColorChar(i, Color.white, 0.5f));
-            dialogueSequence.Join(textAnimator.DORotateChar(i, Vector3.zero, 0.5f, RotateMode.Fast));
-            dialogueSequence.Join(textAnimator.DOOffsetChar(i, Vector3.zero, 0.5f));
-        }
+            //Escape loop if text is not visible
+            if (!textAnimator.textInfo.characterInfo[i].isVisible)
+            {
+                continue;
+            }
 
-        dialogueSequence.AppendInterval(3);
-        dialogueSequence.Append(dialogueBox.DOAnchorPos(new Vector2(dialogueBoxEndPos.x, -dialogueBox.sizeDelta.y),
-            0.66f, false).SetEase(Ease.InBack).OnComplete(() => dialogueBox.gameObject.SetActive(false)));
+            //Animate in the text
+            dialogueLineSequence.Insert(0.33f + i * 0.02f,
+                textAnimator.DOColorChar(i, Color.white, 0.5f));
+            dialogueLineSequence.Join(textAnimator.DORotateChar(i, Vector3.zero, 0.5f, RotateMode.Fast));
+            dialogueLineSequence.Join(textAnimator.DOOffsetChar(i, Vector3.zero, 0.5f));
+        }
+    }
+
+    public void OpenDialogueBox()
+    {
+        dialogueBox.DOAnchorPos(dialogueBoxEndPos, 0.66f, false).SetEase(Ease.OutBack);
+    }
+
+    public void CloseDialogueBox()
+    {
+        dialogueBox.DOAnchorPos(new Vector2(dialogueBoxEndPos.x, -dialogueBox.sizeDelta.y),
+            0.66f, false).SetEase(Ease.InBack).OnComplete(() => dialogueBox.gameObject.SetActive(false));
     }
 }
