@@ -24,7 +24,7 @@ public class UIBehavior : MonoBehaviour
     [SerializeField] private GameObject closedShopUI;
 
     [Header("Upgrade Text Variables")]
-    [SerializeField] private TextMeshProUGUI speedUpgradeText;
+    [SerializeField] private TextMeshProUGUI sizeUpgradeText;
     [SerializeField] private TextMeshProUGUI numberUpgradeText;
     [SerializeField] private TextMeshProUGUI attackUpgradeText;
     [SerializeField] private TextMeshProUGUI inductionUpgradeText;
@@ -134,7 +134,7 @@ public class UIBehavior : MonoBehaviour
         playerHealthText.text = "Lives: " + PlayerStats.playerHealth.ToString();
 
         //update upgrade cost texts
-        speedUpgradeText.text = PlayerStats.speedUpgradeCost.ToString();
+        sizeUpgradeText.text = PlayerStats.sizeUpgradeCost.ToString();
         numberUpgradeText.text = PlayerStats.numberUpgradeCost.ToString();
         attackUpgradeText.text = PlayerStats.attackUpgradeCost.ToString();
         inductionUpgradeText.text = PlayerStats.inductionUpgradeCost.ToString();
