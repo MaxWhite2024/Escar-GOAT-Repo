@@ -51,8 +51,8 @@ public class Enemy : MonoBehaviour
 
     public void SetHealth(int health)
     {
-        maxHealth = health;
-        enemyHealth.health = health;
+        maxHealth += health;
+        enemyHealth.health += health;
     }
 
     private void MoveToPlayer()

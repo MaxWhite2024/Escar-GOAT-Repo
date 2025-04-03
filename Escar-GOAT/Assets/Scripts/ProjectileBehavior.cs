@@ -8,7 +8,7 @@ public class ProjectileBehavior : MonoBehaviour
     public Vector2 direction = Vector2.zero;
     [SerializeField] private float projectileSpeed = 1000f;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float lifeTime = 10f;
+    [SerializeField] private float lifeTime = 8f;
 
     private void Start()
     {
@@ -17,22 +17,5 @@ public class ProjectileBehavior : MonoBehaviour
 
         //apply a force to self in the specified diretion at projectileSpeed
         rb.AddForce(direction.normalized * projectileSpeed, ForceMode2D.Impulse);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        CollisionLogic(collision.collider);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        CollisionLogic(collision);
-    }
-
-    //if the projectile comes into contact with something it can touch,...
-    private void CollisionLogic(Collider2D collision)
-    {
-        //destroy self 
-        Destroy(gameObject, 0.1f);
     }
 }

@@ -23,7 +23,8 @@ public class Damageable : MonoBehaviour
 
     private void Update()
     {
-        if (type == DamageableType.Player) 
+        //Basically increases player health when the player buys a health upgrade
+        if (type == DamageableType.Player && PlayerStats.playerHealth > health) 
         { 
             health = PlayerStats.playerHealth;
         }
@@ -42,14 +43,28 @@ public class Damageable : MonoBehaviour
         {
             return;
         }
-        
-        health -= damage.damage;
+
+        Debug.Log(health);
 
         //if this damageableType is the player,...
-        if(type == DamageableType.Player)
+        if (type == DamageableType.Player)
         {
+            health -= damage.damage;
+
             //update PlayerStats to equal health
             PlayerStats.playerHealth = health;
+        }
+        else
+        {
+            int tempHealth = health;
+            health -= damage.damage;
+            damage.damage -= tempHealth;
+
+            if (damage.damage <= 0)
+            {
+                Destroy(damage.gameObject);
+            }
+
         }
 
         if(health <= 0)
