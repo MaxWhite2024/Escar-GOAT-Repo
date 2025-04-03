@@ -13,7 +13,7 @@ public class ShopBehavior : MonoBehaviour
     [SerializeField] private GameObject equipCosmeticButton;
     public enum UpgradeType
     {
-        SPEED, NUMBER, ATTACK, INCOME, LIFE
+        SIZE, NUMBER, ATTACK, INCOME, LIFE
     };
 
     //***** Upgrade Shop Functions *****
@@ -22,18 +22,18 @@ public class ShopBehavior : MonoBehaviour
         //upgrade the appropriate player stat and increase the appropriate upgrade cost
         switch (upgradeTypeToUpgrade)
         {
-            case UpgradeType.SPEED:
+            case UpgradeType.SIZE:
                 //if player has enough money to buy speed upgrade,...
-                if (PlayerStats.currencyCount >= PlayerStats.speedUpgradeCost)
+                if (PlayerStats.currencyCount >= PlayerStats.sizeUpgradeCost)
                 {
                     //decrement player currency
-                    PlayerStats.currencyCount -= PlayerStats.speedUpgradeCost;
+                    PlayerStats.currencyCount -= PlayerStats.sizeUpgradeCost;
 
                     //upgrade speed
-                    PlayerStats.movementSpeed += 2;
+                    PlayerStats.attackSize += .2f;
 
                     //increase speed upgrade cost
-                    PlayerStats.speedUpgradeCost *= 2;
+                    PlayerStats.sizeUpgradeCost *= 2;
                 }
                 
                 break;
@@ -103,9 +103,9 @@ public class ShopBehavior : MonoBehaviour
         PlayerStats.PrintStats();
     }
 
-    public void UpgradeSpeed()
+    public void UpgradeSize()
     {
-        UpgradeStat(UpgradeType.SPEED);
+        UpgradeStat(UpgradeType.SIZE);
     }
 
     public void UpgradeNumber()

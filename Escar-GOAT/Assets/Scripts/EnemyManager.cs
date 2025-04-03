@@ -16,9 +16,11 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float spawnRadius;
     [SerializeField] private int initialWaveScore = 10;
     [SerializeField] private int waveScoreMultiplier = 1;
+    [SerializeField] private int smallEnemySpawnChance;
 
     [Header("Objects To Reference")]
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject smallEnemyPrefab;
     [SerializeField] private TextMeshProUGUI timerUI;
     [SerializeField] private GameObject player;
     [SerializeField] private List<Transform> spawnLocations;
@@ -76,14 +78,26 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < (int)waveSize; i++)
         {
+
             Vector3 SpawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
             SpawnLocation.x += Random.Range(-spawnRadius, spawnRadius);
             SpawnLocation.y += Random.Range(-spawnRadius, spawnRadius);
 
-            GameObject enemy = Instantiate(enemyPrefab, SpawnLocation, Quaternion.identity);
-            
+            GameObject enemy = null;
+
+            if (waveSize >= 15 && Random.Range(0, 100) < smallEnemySpawnChance)
+            {
+                enemy = Instantiate(smallEnemyPrefab, SpawnLocation, Quaternion.identity);
+                enemy.GetComponent<Enemy>().SetHealth((int)addedHealth - 1);
+
+            }
+            else
+            {
+                enemy = Instantiate(enemyPrefab, SpawnLocation, Quaternion.identity);
+                enemy.GetComponent<Enemy>().SetHealth((int)addedHealth);
+            }
+
             enemy.GetComponent<Enemy>().manager = this;
-            enemy.GetComponent<Enemy>().SetHealth((int)addedHealth);
             enemy.GetComponent<DamageSource>().damage += (int)addedDamage;
 
             enemies.Add(enemy);
@@ -92,5 +106,14 @@ public class EnemyManager : MonoBehaviour
         waveSize += enemiesAddedEachWave;
         addedHealth += enemyHealthAddedEachWave;
         addedDamage += enemyDamageAddedEachWave;
+    }
+
+    public void PlayerHit()
+    {
+
+        for(int i = 0; i < enemies.Count; i++)
+        {
+            enemies[i].GetComponent<Enemy>().KnockBack(50);
+        }
     }
 }
