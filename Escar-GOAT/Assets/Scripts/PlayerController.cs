@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
             //fire a projectile
             GameObject projectileInstance = Instantiate(playerBulletPrefab, firePoint.position, Quaternion.identity);
             projectileInstance.GetComponent<ProjectileBehavior>().direction = aimDirection;
+            projectileInstance.GetComponent<ProjectileBehavior>().Scale();
             projectileInstance.GetComponent<DamageSource>().damage = PlayerStats.projectileDamage;
 
             //reset tempFireRate
@@ -77,8 +78,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity =
-            new Vector2(axis.x * PlayerStats.movementSpeed,
-                axis.y * PlayerStats.movementSpeed); // This moves the player
+            new Vector2(axis.x * 2,
+                axis.y * 2); // This moves the player
     }
 
     void OnTriggerEnter2D(Collider2D other)

@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
     private Damageable enemyHealth;
     public int maxHealth;
     private SpriteRenderer sprite;
+    private bool knockedBack;
+    private float knockedBackTimer = .5f;
 
 
     // Start is called before the first frame update
@@ -40,13 +42,27 @@ public class Enemy : MonoBehaviour
         maxHealth = 1;
         enemyHealth.health = maxHealth;
         sprite = GetComponent <SpriteRenderer>();
+        knockedBack = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveToPlayer();
-        sprite.flipX = (playerPos.x < transform.position.x);
+        if (knockedBack && knockedBackTimer > 0)
+        {
+            knockedBackTimer -= Time.deltaTime;
+        }
+        else if(knockedBack)
+        {
+            knockedBack = false;
+            knockedBackTimer = .5f;
+        }
+        else
+        {
+            MoveToPlayer();
+            sprite.flipX = (playerPos.x < transform.position.x);
+        }
+        
     }
 
     public void SetHealth(int health)
@@ -63,11 +79,20 @@ public class Enemy : MonoBehaviour
         rb.velocity = (distance.normalized * speed);
     }
 
+    public void KnockBack(float knockbackSpeed)
+    {
+        knockedBack = true;
+        playerPos = player.transform.position;
+
+        Vector3 distance = (transform.position - playerPos);
+        rb.velocity = (distance.normalized * knockbackSpeed);
+    }
+
     public void Die()
     {
         Instantiate(coinPrefab, this.transform.position, this.transform.rotation);
         PlayerStats.scoreCount += maxHealth;
-        //manager.enemies.Remove(this.gameObject);
+        manager.enemies.Remove(this.gameObject);
         Destroy(this.gameObject);
     }
 

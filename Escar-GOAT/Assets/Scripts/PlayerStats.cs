@@ -9,14 +9,14 @@ public class PlayerStats : ScriptableObject
     public static int playerHealth;
 
     //base player stats
-    public static float movementSpeed; //SPEED
+    public static float attackSize; //SIZE
     public static int shotsPerSecond; //NUMBER
     public static int projectileDamage; //ATTACK
     public static float coinPickupRange; //INCOME
     public static int maxHealth; //LIVES
 
     //upgrade cost stats
-    public static int speedUpgradeCost;
+    public static int sizeUpgradeCost;
     public static int numberUpgradeCost;
     public static int attackUpgradeCost;
     public static int inductionUpgradeCost;
@@ -31,7 +31,7 @@ public class PlayerStats : ScriptableObject
     public static void PrintStats()
     {
         Debug.Log("||||| Current Player Stats ||||| \n" + 
-        "Speed = " + movementSpeed + ". | " +
+        "Size = " + attackSize + ". | " +
         "Number = " + shotsPerSecond + ". | " +
         "Attack = " + projectileDamage + ". | " +
         "Induction = " + coinPickupRange + ". | " +
@@ -46,12 +46,12 @@ public class PlayerStats : ScriptableObject
     {
         playerHealth = 1;
 
-        movementSpeed = 2;
+        attackSize = .3f;
         shotsPerSecond = 1;
         projectileDamage = 1;
         coinPickupRange = 3f;
 
-        speedUpgradeCost = 1;
+        sizeUpgradeCost = 1;
         numberUpgradeCost = 1;
         attackUpgradeCost = 1;
         inductionUpgradeCost = 1;

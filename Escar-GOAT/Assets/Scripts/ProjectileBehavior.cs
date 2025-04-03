@@ -18,4 +18,9 @@ public class ProjectileBehavior : MonoBehaviour
         //apply a force to self in the specified diretion at projectileSpeed
         rb.AddForce(direction.normalized * projectileSpeed, ForceMode2D.Impulse);
     }
+
+    public void Scale()
+    {
+        transform.localScale = new Vector3(PlayerStats.attackSize, PlayerStats.attackSize, PlayerStats.attackSize);
+    }
 }
