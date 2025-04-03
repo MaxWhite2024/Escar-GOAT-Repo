@@ -11,6 +11,7 @@ public class ShopBehavior : MonoBehaviour
     [SerializeField] private Image currentCosmeticImage;
     [SerializeField] private GameObject buyCosmeticButton;
     [SerializeField] private GameObject equipCosmeticButton;
+    [SerializeField] private Image playerEquippedCosmeticImage;
     public enum UpgradeType
     {
         SIZE, NUMBER, ATTACK, INCOME, LIFE
@@ -216,13 +217,16 @@ public class ShopBehavior : MonoBehaviour
 
     public void BuyCurrentCosmetic()
     {
-        //if player has enough shells to buy current cosmetic,...
-        //add the cosmetic item to the player's owned cosmetics
-        //subtract the cost from the player's shells
+        ////if player has enough shells to buy current cosmetic,...
+        //if (PlayerStats.shellCount)
+        //{
+            //add the cosmetic item to the player's owned cosmetics
+            //subtract the cost from the player's shells
 
-        //change the "buy" button to the "equip" button
-        HandleCosmeticButtons();
+            //change the "buy" button to the "equip" button
+            HandleCosmeticButtons();
 
+        //}
         //else,...
         //return
     }
@@ -230,6 +234,7 @@ public class ShopBehavior : MonoBehaviour
     public void EquipCurrentCosmetic()
     {
         //switch currently equipped cosmetic
+        playerEquippedCosmeticImage.sprite = allCosmetics[currentCosmeticIndex];
 
         //update cosmetic shown
         DisplayCurrentCosmetic();

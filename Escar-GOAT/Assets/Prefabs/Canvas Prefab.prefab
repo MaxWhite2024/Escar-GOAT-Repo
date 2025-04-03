@@ -927,7 +927,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8182584344381598096}
         m_TargetAssemblyTypeName: ShopBehavior, Assembly-CSharp
-        m_MethodName: UpgradeSpeed
+        m_MethodName: UpgradeSize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Buy
+  m_text: 'Buy (5 shells)
 
 '
   m_isRightToLeft: 0
@@ -1110,7 +1110,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -352.9722}
-  m_SizeDelta: {x: 345.58, y: 95.218994}
+  m_SizeDelta: {x: 467.042, y: 95.219}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1490618004703274112
 CanvasRenderer:
@@ -1610,7 +1610,7 @@ MonoBehaviour:
   cosmeticsMenuUI: {fileID: 5029486781333837278}
   premiumShopUI: {fileID: 4666294934119622322}
   closedShopUI: {fileID: 816887069230512224}
-  speedUpgradeText: {fileID: 5035522282487791411}
+  sizeUpgradeText: {fileID: 0}
   numberUpgradeText: {fileID: 202956545392132247}
   attackUpgradeText: {fileID: 8480193180711065430}
   inductionUpgradeText: {fileID: 3190938083883481831}
@@ -2558,7 +2558,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -352.9722}
-  m_SizeDelta: {x: 345.58, y: 95.218994}
+  m_SizeDelta: {x: 467.042, y: 95.219}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &118303403599787311
 CanvasRenderer:
