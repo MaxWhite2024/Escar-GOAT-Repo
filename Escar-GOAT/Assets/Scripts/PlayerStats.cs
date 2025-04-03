@@ -28,6 +28,9 @@ public class PlayerStats : ScriptableObject
     public static int scoreCount = 0;
     public static int highscoreCount = 0;
 
+    //player owned cosmetics
+    public static List<Sprite> ownedCosmetics = new List<Sprite>();
+
     public static void PrintStats()
     {
         Debug.Log("||||| Current Player Stats ||||| \n" + 

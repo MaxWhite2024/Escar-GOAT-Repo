@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopBehavior : MonoBehaviour
 {
+    [SerializeField] private List<Sprite> allCosmetics = new List<Sprite>();
+    private int currentCosmeticIndex = 0;
+    [SerializeField] private Image currentCosmeticImage;
+    [SerializeField] private GameObject buyCosmeticButton;
+    [SerializeField] private GameObject equipCosmeticButton;
     public enum UpgradeType
     {
         SPEED, NUMBER, ATTACK, INCOME, LIFE
     };
 
+    //***** Upgrade Shop Functions *****
     private void UpgradeStat(UpgradeType upgradeTypeToUpgrade)
     {
         //upgrade the appropriate player stat and increase the appropriate upgrade cost
@@ -121,7 +128,7 @@ public class ShopBehavior : MonoBehaviour
         UpgradeStat(UpgradeType.LIFE);
     }
 
-    //Premium Shop Functions
+    //***** Premium Shop Functions *****
     public void Buy5Shells()
     {
         PlayerStats.shellCount += 5;
@@ -137,10 +144,17 @@ public class ShopBehavior : MonoBehaviour
         PlayerStats.shellCount += 50;
     }
 
-    //Cosmetic Shop Functions
+    //***** Cosmetic Shop Functions *****
     public void CycleCosmeticsRight()
     {
+        //increment index with wrap-around
+        if (currentCosmeticIndex == allCosmetics.Count - 1)
+            currentCosmeticIndex = 0;
+        else
+            currentCosmeticIndex++;
+
         //change cosmetic shown
+        DisplayCurrentCosmetic();
 
         //show the correct cosmetic button
         HandleCosmeticButtons();
@@ -148,19 +162,56 @@ public class ShopBehavior : MonoBehaviour
 
     public void CycleCosmeticsLeft()
     {
+        //decrement index with wrap-around
+        if (currentCosmeticIndex == 0)
+            currentCosmeticIndex = allCosmetics.Count - 1;
+        else
+            currentCosmeticIndex--;
+
         //change cosmetic shown
+        DisplayCurrentCosmetic();
 
         //show the correct cosmetic button
         HandleCosmeticButtons();
     }
 
+    private void DisplayCurrentCosmetic()
+    {
+        //if current sprite is empty,...
+        if (allCosmetics[currentCosmeticIndex] == null)
+        {
+            //make sprite transparent
+            Color transparentColor = new Color(1, 1, 1, 0);
+            currentCosmeticImage.color = transparentColor;
+        }
+        //else current sprite is NOT empty,...
+        else
+        {
+            //make sprite opaque
+            Color opaqueColor = new Color(1, 1, 1, 1);
+            currentCosmeticImage.color = opaqueColor;
+        }
+
+        //set the current shown cosmetic to the cosmetic at currentCosmeticIndex in the allCosmetics list
+        currentCosmeticImage.sprite = allCosmetics[currentCosmeticIndex];
+    }
+
     private void HandleCosmeticButtons()
     {
-        //if cosmetic is owned,... 
-        //show the "eqiup" button
-
+        //if current cosmetic is owned,... 
+        if (PlayerStats.ownedCosmetics.Contains(allCosmetics[currentCosmeticIndex]))
+        {
+            //show the "equip" button
+            buyCosmeticButton.SetActive(false);
+            equipCosmeticButton.SetActive(true);
+        }
         //else cosmetic is NOT owned,...
-        //show the "buy" button
+        else
+        {
+            //show the "buy" button
+            buyCosmeticButton.SetActive(true);
+            equipCosmeticButton.SetActive(false);
+        }
     }
 
     public void BuyCurrentCosmetic()
@@ -178,8 +229,9 @@ public class ShopBehavior : MonoBehaviour
 
     public void EquipCurrentCosmetic()
     {
-        //turn off old cosmetic
+        //switch currently equipped cosmetic
 
-        //turn on current cosmetic
+        //update cosmetic shown
+        DisplayCurrentCosmetic();
     }
 }
