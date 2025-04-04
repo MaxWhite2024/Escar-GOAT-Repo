@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public UserInput input; // Include the input system
     [HideInInspector] public Vector2 axis;
+    public float movementSpeed;
+    public float speedBoostSpeed;
+    public float speedBoostTimer;
 
     //aiming and shooting vars
     private Vector2 aimDirection;
@@ -81,8 +84,16 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity =
-            new Vector2(axis.x * 2,
-                axis.y * 2); // This moves the player
+            new Vector2(axis.x * movementSpeed,
+                axis.y * movementSpeed); // This moves the player
+    }
+
+    public IEnumerator TempSpeedUp()
+    {
+        movementSpeed += speedBoostSpeed;
+        yield return new WaitForSeconds(speedBoostTimer);
+        Debug.Log("Hello???");
+        movementSpeed -= speedBoostSpeed;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -92,6 +103,12 @@ public class PlayerController : MonoBehaviour
         {
             PlayerStats.currencyCount++;
             PlayerStats.ScoreCount++;
+        }
+
+        // Increase speed temporarily upon touching the speed boost powerup
+        if (other.CompareTag("Speed Boost"))
+        {
+            StartCoroutine(TempSpeedUp());
         }
     }
 }

@@ -335,7 +335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1148175799, guid: 55f64b11cf23f8446a8cc07d3e4deb60, type: 3}
+  m_Sprite: {fileID: 861937218, guid: 8c0973afa1eea904f8e7c07278d651ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -603,7 +603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -58179956, guid: 55f64b11cf23f8446a8cc07d3e4deb60, type: 3}
+  m_Sprite: {fileID: -1281679773, guid: 8c0973afa1eea904f8e7c07278d651ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1454902257, guid: 55f64b11cf23f8446a8cc07d3e4deb60, type: 3}
+  m_Sprite: {fileID: -673934326, guid: 8c0973afa1eea904f8e7c07278d651ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2188,7 +2188,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1565461290, guid: 55f64b11cf23f8446a8cc07d3e4deb60, type: 3}
+  m_Sprite: {fileID: -1561118051, guid: 8c0973afa1eea904f8e7c07278d651ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5704,7 +5704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +Speed
+  m_text: +Size
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6377,7 +6377,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 744922242, guid: 55f64b11cf23f8446a8cc07d3e4deb60, type: 3}
+  m_Sprite: {fileID: -46749083, guid: 8c0973afa1eea904f8e7c07278d651ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6994,7 +6994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4217568675832714068
 RectTransform:
   m_ObjectHideFlags: 0

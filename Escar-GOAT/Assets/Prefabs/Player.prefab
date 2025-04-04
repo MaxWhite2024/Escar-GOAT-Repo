@@ -202,6 +202,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   input: {fileID: 0}
   axis: {x: 0, y: 0}
+  movementSpeed: 2
   playerWeaponTransform: {fileID: 3219722358520361748}
   playerBulletPrefab: {fileID: 4692344183259313107, guid: 1b673f598de6b7c49aad43f26366e635, type: 3}
   playerGun: {fileID: 886975524317599963}
