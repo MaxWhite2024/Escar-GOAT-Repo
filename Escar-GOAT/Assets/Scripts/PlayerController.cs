@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject playerGun;
     [SerializeField] private Transform firePoint;
     [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private SpriteRenderer cosmeticSprite;
     private SpriteRenderer gunSprite;
 
     void Start()
@@ -44,10 +45,12 @@ public class PlayerController : MonoBehaviour
         if (aimDirection.x >= 0)
         {
             playerSprite.flipX = false;
+            cosmeticSprite.flipX = false;
         }
         else
         {
             playerSprite.flipX = true;
+            cosmeticSprite.flipX = true;
         }
 
         //rotate player weapon based on aimDirection

@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 8296431757631087595}
   - component: {fileID: 3897395000803799372}
   m_Layer: 5
-  m_Name: Speed Button
+  m_Name: Size Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1610,7 +1610,7 @@ MonoBehaviour:
   cosmeticsMenuUI: {fileID: 5029486781333837278}
   premiumShopUI: {fileID: 4666294934119622322}
   closedShopUI: {fileID: 816887069230512224}
-  sizeUpgradeText: {fileID: 0}
+  sizeUpgradeText: {fileID: 5035522282487791411}
   numberUpgradeText: {fileID: 202956545392132247}
   attackUpgradeText: {fileID: 8480193180711065430}
   inductionUpgradeText: {fileID: 3190938083883481831}
@@ -1636,6 +1636,7 @@ MonoBehaviour:
   currentCosmeticImage: {fileID: 7589802524742322605}
   buyCosmeticButton: {fileID: 1210011724878094609}
   equipCosmeticButton: {fileID: 2654289460049409813}
+  playerEquippedCosmeticImage: {fileID: 0}
 --- !u!1 &2229765477694161081
 GameObject:
   m_ObjectHideFlags: 0
