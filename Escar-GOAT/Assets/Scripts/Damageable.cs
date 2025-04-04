@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public enum DamageableType { Player, Enemy};
 
@@ -17,16 +19,16 @@ public class Damageable : MonoBehaviour
         if (type == DamageableType.Player)
         {
             //set PlayerStats to equal health
-            health = PlayerStats.playerHealth;
+            health = PlayerStats.PlayerHealth;
         }
     }
 
     private void Update()
     {
         //Basically increases player health when the player buys a health upgrade
-        if (type == DamageableType.Player && PlayerStats.playerHealth > health) 
+        if (type == DamageableType.Player && PlayerStats.PlayerHealth > health) 
         { 
-            health = PlayerStats.playerHealth;
+            health = PlayerStats.PlayerHealth;
         }
     }
 
@@ -50,8 +52,7 @@ public class Damageable : MonoBehaviour
             health -= damage.damage;
 
             //update PlayerStats to equal health
-            PlayerStats.playerHealth = health;
-
+            PlayerStats.PlayerHealth = health;
         }
         else
         {

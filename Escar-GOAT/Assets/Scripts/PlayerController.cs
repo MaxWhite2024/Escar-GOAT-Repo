@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Coin"))
         {
             PlayerStats.currencyCount++;
-            PlayerStats.scoreCount++;
+            PlayerStats.ScoreCount++;
         }
     }
 }

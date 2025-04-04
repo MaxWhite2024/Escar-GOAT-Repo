@@ -91,7 +91,7 @@ public class ShopBehavior : MonoBehaviour
                     PlayerStats.currencyCount -= PlayerStats.loveUpgradeCost;
 
                     //upgrade income
-                    PlayerStats.playerHealth += 1;
+                    PlayerStats.PlayerHealth += 1;
 
                     //increase income upgrade cost
                     PlayerStats.loveUpgradeCost *= 2;

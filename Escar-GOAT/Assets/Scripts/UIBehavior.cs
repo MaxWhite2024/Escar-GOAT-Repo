@@ -125,13 +125,13 @@ public class UIBehavior : MonoBehaviour
         shellText.text = "Shells: " + PlayerStats.shellCount.ToString();
 
         //update scoreText with currencyCount
-        scoreText.text = "Score: " + PlayerStats.scoreCount.ToString();
+        scoreText.text = "Score: " + PlayerStats.ScoreCount.ToString();
 
         //update highscoreText with currencyCount
         highscoreText.text = "Highscore: " + highScore.highscore.ToString();
 
         //update player health with 
-        playerHealthText.text = "Lives: " + PlayerStats.playerHealth.ToString();
+        playerHealthText.text = "Lives: " + PlayerStats.PlayerHealth.ToString();
 
         //update upgrade cost texts
         sizeUpgradeText.text = PlayerStats.sizeUpgradeCost.ToString();

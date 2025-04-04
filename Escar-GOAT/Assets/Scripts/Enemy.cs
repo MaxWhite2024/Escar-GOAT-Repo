@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         Instantiate(coinPrefab, this.transform.position, this.transform.rotation);
-        PlayerStats.scoreCount += maxHealth;
+        PlayerStats.ScoreCount += maxHealth;
         manager.enemies.Remove(this.gameObject);
         Destroy(this.gameObject);
     }

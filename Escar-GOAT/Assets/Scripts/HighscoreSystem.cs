@@ -14,11 +14,11 @@ public class HighscoreSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerStats.scoreCount > previousScore)
+        if (PlayerStats.ScoreCount > previousScore)
         {
-            previousScore = PlayerStats.scoreCount;
-            if (PlayerStats.scoreCount > highScore.highscore)
-                highScore.highscore = PlayerStats.scoreCount;
+            previousScore = PlayerStats.ScoreCount;
+            if (PlayerStats.ScoreCount > highScore.highscore)
+                highScore.highscore = PlayerStats.ScoreCount;
         }
     }
 }
