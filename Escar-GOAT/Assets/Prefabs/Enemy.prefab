@@ -179,6 +179,9 @@ MonoBehaviour:
   manager: {fileID: 0}
   coinPrefab: {fileID: 337705264694613172, guid: 436b049389d27ac4684b24d754477f7a, type: 3}
   maxHealth: 1
+  powerUpDropRate: 50
+  powerUpType:
+  - {fileID: 5806619588110163342, guid: 33370ec7a313742419ab6843bd05e01a, type: 3}
 --- !u!114 &4345342269049673383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,3 +242,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bdf896c3e2d3644d8cb1e3d56a5a228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cullingDistance: 50

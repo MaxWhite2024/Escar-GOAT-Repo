@@ -21,6 +21,10 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer sprite;
     private bool knockedBack;
     private float knockedBackTimer = .5f;
+    private float powerUpDropChance;
+    private int powerUpTypeChance;
+    public float powerUpDropRate;
+    public GameObject[] powerUpType;
 
 
     // Start is called before the first frame update
@@ -43,6 +47,9 @@ public class Enemy : MonoBehaviour
         enemyHealth.health = maxHealth;
         sprite = GetComponent <SpriteRenderer>();
         knockedBack = false;
+
+        powerUpDropChance = Random.Range(0, 100);
+        powerUpTypeChance = Random.Range(0, powerUpType.Length);
     }
 
     // Update is called once per frame
@@ -93,7 +100,16 @@ public class Enemy : MonoBehaviour
         Instantiate(coinPrefab, this.transform.position, this.transform.rotation);
         PlayerStats.scoreCount += maxHealth;
         manager.enemies.Remove(this.gameObject);
+        SpawnPowerup();
         Destroy(this.gameObject);
+    }
+
+    public void SpawnPowerup()
+    {
+        if (powerUpDropChance <= powerUpDropRate)
+        {
+            Instantiate(powerUpType[powerUpTypeChance], this.transform.position, this.transform.rotation);
+        }
     }
 
 }
