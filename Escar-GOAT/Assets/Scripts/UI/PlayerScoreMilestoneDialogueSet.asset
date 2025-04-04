@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: StartingDialogueSet
+  m_Name: PlayerScoreMilestoneDialogueSet
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSet
   dialogueGroups:
   - dialogueLines:
-    - Finally...
-    - The Salt Rock has come back to Shell!
-    - I must fight my way through the demon snail horde...
+    - I'm gonna take this salt...
+    - Shine it real nice..
+    - Then turn that son of a snail sideways and sick it straight up your candy shell!

@@ -11,29 +11,34 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] RectTransform dialogueBox;
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] DialogueSet startingDialogueSet;
+    [SerializeField] DialogueSet scoreMilestoneDialogueSet;
+    [SerializeField] DialogueSet damageTakenDialogueSet;
 
     private Vector2 dialogueBoxEndPos;
-
-    public enum DialogueType
-    {
-        HighScore
-    }
-
-    private void Start()
-    {
-        dialogueBoxEndPos = dialogueBox.anchoredPosition;
-        //DisplayDialogue(DialogueType.HighScore);
-    }
-
+    bool isDialogueBeingDisplayed = false;
+    
     private void OnEnable()
     {
+        PlayerStats.onNewScoreMilestone.AddListener(() =>DisplayDialogue(scoreMilestoneDialogueSet));
+        PlayerStats.onPlayerDamageTaken.AddListener(() =>DisplayDialogue(damageTakenDialogueSet));
         dialogueBoxEndPos = dialogueBox.anchoredPosition;
         dialogueBox.gameObject.SetActive(false);
         DisplayDialogue(startingDialogueSet);
     }
+    
+    private void OnDisable()
+    {
+        PlayerStats.onNewScoreMilestone.RemoveAllListeners();
+        PlayerStats.onPlayerDamageTaken.RemoveAllListeners();
+    }
 
     public void DisplayDialogue(DialogueSet dialogueSet)
     {
+        if (isDialogueBeingDisplayed)
+        {
+            return;
+        }
+        
         int dialogueIndex = UnityEngine.Random.Range(0, dialogueSet.dialogueGroups.Length);
 
         dialogueBox.anchoredPosition = new Vector2(dialogueBoxEndPos.x, -dialogueBox.sizeDelta.y);
@@ -58,7 +63,6 @@ public class DialogueSystem : MonoBehaviour
 
     private void DisplayDialogueLine(string textToDisplay)
     {
-
         dialogueText.text = textToDisplay;
 
         DOTweenTMPAnimator textAnimator = new DOTweenTMPAnimator(dialogueText);
@@ -89,12 +93,17 @@ public class DialogueSystem : MonoBehaviour
 
     public void OpenDialogueBox()
     {
+        isDialogueBeingDisplayed = true;
         dialogueBox.DOAnchorPos(dialogueBoxEndPos, 0.66f, false).SetEase(Ease.OutBack);
     }
 
     public void CloseDialogueBox()
     {
         dialogueBox.DOAnchorPos(new Vector2(dialogueBoxEndPos.x, -dialogueBox.sizeDelta.y),
-            0.66f, false).SetEase(Ease.InBack).OnComplete(() => dialogueBox.gameObject.SetActive(false));
+            0.66f, false).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            isDialogueBeingDisplayed = false;
+            dialogueBox.gameObject.SetActive(false);
+        });
     }
 }

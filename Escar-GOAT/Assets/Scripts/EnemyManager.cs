@@ -70,7 +70,7 @@ public class EnemyManager : MonoBehaviour
         {
             SpawnEnemies();
             timer = spawnTimer;
-            PlayerStats.scoreCount += initialWaveScore * waveScoreMultiplier;
+            PlayerStats.ScoreCount += initialWaveScore * waveScoreMultiplier;
         }
     }
 
