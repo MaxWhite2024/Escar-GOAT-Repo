@@ -179,7 +179,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   coinPrefab: {fileID: 337705264694613172, guid: 436b049389d27ac4684b24d754477f7a, type: 3}
   maxHealth: 1
-  powerUpDropRate: 50
+  powerUpDropRate: 1
   powerUpType:
   - {fileID: 5806619588110163342, guid: 33370ec7a313742419ab6843bd05e01a, type: 3}
 --- !u!114 &4345342269049673383
