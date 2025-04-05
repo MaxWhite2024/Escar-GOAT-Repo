@@ -10,16 +10,26 @@ public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] RectTransform dialogueBox;
     [SerializeField] TMP_Text dialogueText;
+    [SerializeField] private float scoreMilestionDialogueCooldownInSeconds = 30;
     [SerializeField] DialogueSet startingDialogueSet;
     [SerializeField] DialogueSet scoreMilestoneDialogueSet;
     [SerializeField] DialogueSet damageTakenDialogueSet;
 
     private Vector2 dialogueBoxEndPos;
     bool isDialogueBeingDisplayed = false;
+    private bool canScoreMilestoneDialogueBeDisplayed = true;
     
     private void OnEnable()
     {
-        PlayerStats.onNewScoreMilestone.AddListener(() =>DisplayDialogue(scoreMilestoneDialogueSet));
+        PlayerStats.onNewScoreMilestone.AddListener(() =>
+        {
+            if (canScoreMilestoneDialogueBeDisplayed)
+            {
+                DisplayDialogue(scoreMilestoneDialogueSet);
+                StartCoroutine(ScoreMilestoneDialogueCooldownCoroutine());
+            }
+        });
+        
         PlayerStats.onPlayerDamageTaken.AddListener(() =>DisplayDialogue(damageTakenDialogueSet));
         dialogueBoxEndPos = dialogueBox.anchoredPosition;
         dialogueBox.gameObject.SetActive(false);
@@ -106,4 +116,14 @@ public class DialogueSystem : MonoBehaviour
             dialogueBox.gameObject.SetActive(false);
         });
     }
+
+    IEnumerator ScoreMilestoneDialogueCooldownCoroutine()
+    {
+        canScoreMilestoneDialogueBeDisplayed = false;
+
+        yield return new WaitForSeconds(scoreMilestionDialogueCooldownInSeconds);
+        
+        canScoreMilestoneDialogueBeDisplayed = true;
+    }
+    
 }

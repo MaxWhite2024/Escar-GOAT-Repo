@@ -29,5 +29,4 @@ MonoBehaviour:
     - I'm a good snail,
     - but sometimes I do bad things.
   - dialogueLines:
-    - I'm a good snail...
-    - but sometimes I do bad things.
+    - STAY IN SHELL!
