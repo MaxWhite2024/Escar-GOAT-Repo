@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         movementSpeed += speedBoostSpeed;
         yield return new WaitForSeconds(speedBoostTimer);
-        Debug.Log("Hello???");
+        //Debug.Log("Hello???");
         movementSpeed -= speedBoostSpeed;
     }
 

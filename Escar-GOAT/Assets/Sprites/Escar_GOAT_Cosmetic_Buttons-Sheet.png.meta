@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8c0973afa1eea904f8e7c07278d651ad
+guid: de4b8f6d5091d3e409fa91ed2f4685fb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: v2_Escar_GOAT_Color_Upgrades_SMALL_Sheet_0
+      name: Escar_GOAT_Cosmetic_Buttons-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 100
+        width: 160
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1b72c00b6e58824eaf124adeffdddf6
-      internalID: -673934326
+      spriteID: cde18c95b67a14347a77437c0e22eda5
+      internalID: -1610666388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: v2_Escar_GOAT_Color_Upgrades_SMALL_Sheet_1
+      name: Escar_GOAT_Cosmetic_Buttons-Sheet_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 160
         y: 0
-        width: 64
-        height: 100
+        width: 160
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,71 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b1ae94bba019cb4bbc4076fd7aa61ea
-      internalID: -1281679773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: v2_Escar_GOAT_Color_Upgrades_SMALL_Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c806a83bfea08e7468fdecfbfd3175f2
-      internalID: 861937218
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: v2_Escar_GOAT_Color_Upgrades_SMALL_Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0993438e79c5cd14c862b287ecf4cb70
-      internalID: -46749083
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: v2_Escar_GOAT_Color_Upgrades_SMALL_Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7bd0f9a6184048d43942d9c400120fbe
-      internalID: -1561118051
+      spriteID: d339619641798b94f82d8f2459a641a2
+      internalID: -431160709
       vertices: []
       indices: 
       edges: []
@@ -225,11 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      v2_Escar_GOAT_Color_Upgrades_SMALL_Sheet_0: -673934326
-      v2_Escar_GOAT_Color_Upgrades_SMALL_Sheet_1: -1281679773
-      v2_Escar_GOAT_Color_Upgrades_SMALL_Sheet_2: 861937218
-      v2_Escar_GOAT_Color_Upgrades_SMALL_Sheet_3: -46749083
-      v2_Escar_GOAT_Color_Upgrades_SMALL_Sheet_4: -1561118051
+      Escar_GOAT_Cosmetic_Buttons-Sheet_0: -1610666388
+      Escar_GOAT_Cosmetic_Buttons-Sheet_1: -431160709
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

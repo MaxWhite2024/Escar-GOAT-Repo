@@ -200,7 +200,7 @@ public class ShopBehavior : MonoBehaviour
     private void HandleCosmeticButtons()
     {
         //if current cosmetic is owned,... 
-        if (PlayerStats.ownedCosmetics.Contains(allCosmetics[currentCosmeticIndex]))
+        if (currentCosmeticIndex == 0 || PlayerStats.ownedCosmetics.Contains(allCosmetics[currentCosmeticIndex]))
         {
             //show the "equip" button
             buyCosmeticButton.SetActive(false);

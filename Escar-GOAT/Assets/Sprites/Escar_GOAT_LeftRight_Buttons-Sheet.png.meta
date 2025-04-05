@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 55f64b11cf23f8446a8cc07d3e4deb60
+guid: 1ca0bd759f4e4614799b860f73a2974f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Escar_GOAT_Color_Upgrades-Sheet_Small_0
+      name: Escar_GOAT_LeftRight_Buttons-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 100
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6f2ff7b182800e4597612708a7aac87
-      internalID: -1454902257
+      spriteID: 2da7fdcfd7ce46245a5be617a334fd67
+      internalID: -1332000948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Escar_GOAT_Color_Upgrades-Sheet_Small_1
+      name: Escar_GOAT_LeftRight_Buttons-Sheet_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 0
-        width: 64
-        height: 100
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,71 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdca14982726cce4da1a1268c8f50a11
-      internalID: -58179956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Escar_GOAT_Color_Upgrades-Sheet_Small_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a771c3b735c6bdc44b5985f62366239f
-      internalID: 1148175799
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Escar_GOAT_Color_Upgrades-Sheet_Small_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 79b4d16312c0df84490fda15c9e83c83
-      internalID: 744922242
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Escar_GOAT_Color_Upgrades-Sheet_Small_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cadffef5d0cc80b419055ee7a2a37718
-      internalID: -1565461290
+      spriteID: 46ff49363ba54744e832c2f4ccd8e7fd
+      internalID: -1276978243
       vertices: []
       indices: 
       edges: []
@@ -225,11 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Escar_GOAT_Color_Upgrades-Sheet_Small_0: -1454902257
-      Escar_GOAT_Color_Upgrades-Sheet_Small_1: -58179956
-      Escar_GOAT_Color_Upgrades-Sheet_Small_2: 1148175799
-      Escar_GOAT_Color_Upgrades-Sheet_Small_3: 744922242
-      Escar_GOAT_Color_Upgrades-Sheet_Small_4: -1565461290
+      Escar_GOAT_LeftRight_Buttons-Sheet_0: -1332000948
+      Escar_GOAT_LeftRight_Buttons-Sheet_1: -1276978243
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
