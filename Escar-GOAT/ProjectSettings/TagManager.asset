@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - Speed Boost
+  - Shotgun
   layers:
   - Default
   - TransparentFX

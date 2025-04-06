@@ -275,6 +275,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &749371188 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4445457765060622682, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+  m_PrefabInstance: {fileID: 1095346591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &825371176
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +436,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1052931161661770171, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+      propertyPath: shotgunTimer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052931161661770171, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+      propertyPath: shotgunPoint1
+      value: 
+      objectReference: {fileID: 1927115531}
+    - target: {fileID: 1052931161661770171, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+      propertyPath: shotgunPoint2
+      value: 
+      objectReference: {fileID: 749371188}
     - target: {fileID: 1052931161661770171, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
       propertyPath: speedBoostSpeed
       value: 4
@@ -860,6 +877,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876232809}
   m_CullTransparentMesh: 1
+--- !u!4 &1927115531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7896324735198061760, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+  m_PrefabInstance: {fileID: 1095346591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1966998318
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +999,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 825371177}
   dialogueText: {fileID: 1876232811}
+  scoreMilestionDialogueCooldownInSeconds: 30
   startingDialogueSet: {fileID: 11400000, guid: a1f752d7b44b4344bb85d7b8b6ce0a80, type: 2}
+  scoreMilestoneDialogueSet: {fileID: 0}
+  damageTakenDialogueSet: {fileID: 0}
 --- !u!114 &2121262417 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8834453978132689872, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
@@ -1046,6 +1071,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33370ec7a313742419ab6843bd05e01a, type: 3}
+--- !u!1001 &8631085368256262281
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3680274432350331083, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680274432350331083, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680274432350331083, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680274432350331083, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680274432350331083, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680274432350331083, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680274432350331083, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680274432350331083, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680274432350331083, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680274432350331083, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703249119947228090, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
+      propertyPath: m_Name
+      value: Shotgun Powerup
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1058,3 +1140,4 @@ SceneRoots:
   - {fileID: 1835384700}
   - {fileID: 1966998322}
   - {fileID: 1645866355921783568}
+  - {fileID: 8631085368256262281}

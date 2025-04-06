@@ -10,17 +10,23 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed;
     public float speedBoostSpeed;
     public float speedBoostTimer;
+    public float shotgunTimer;
 
     //aiming and shooting vars
     private Vector2 aimDirection;
+    [HideInInspector] private Vector2 aimDirection1;
+    [HideInInspector] private Vector2 aimDirection2;
     [SerializeField] private Transform playerWeaponTransform;
     private float tempFireRate = 0.0f;
     [SerializeField] private GameObject playerBulletPrefab;
     [SerializeField] private GameObject playerGun;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private Transform shotgunPoint1;
+    [SerializeField] private Transform shotgunPoint2;
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private SpriteRenderer cosmeticSprite;
     private SpriteRenderer gunSprite;
+    [SerializeField] private int bulletCount = 1;
 
     void Start()
     {
@@ -43,6 +49,8 @@ public class PlayerController : MonoBehaviour
 
         //update aimDirection based on CursorPosition and player position
         aimDirection = input.MousePos - (Vector2)gameObject.transform.position;
+        aimDirection1 = new Vector2 (shotgunPoint1.position.x, shotgunPoint1.position.y) - (Vector2)gameObject.transform.position;
+        aimDirection2 = new Vector2 (shotgunPoint2.position.x, shotgunPoint2.position.y) - (Vector2)gameObject.transform.position;
 
         //swap player x scale based on aimDirection
         if (aimDirection.x >= 0)
@@ -61,14 +69,32 @@ public class PlayerController : MonoBehaviour
             Quaternion.Euler(new Vector3(0f, 0f, Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg));
         gunSprite.flipY = aimDirection.x < 0;
 
+        Fire();
+        // StartCoroutine(ShotgunFire());
+    }
+
+    void FixedUpdate()
+    {
+        rb.velocity =
+            new Vector2(axis.x * movementSpeed,
+                axis.y * movementSpeed); // This moves the player
+    }
+
+    public void Fire()
+    {
         //if fire rate time has elapsed,...
         if (tempFireRate >= (1f / PlayerStats.shotsPerSecond))
         {
-            //fire a projectile
-            GameObject projectileInstance = Instantiate(playerBulletPrefab, firePoint.position, Quaternion.identity);
-            projectileInstance.GetComponent<ProjectileBehavior>().direction = aimDirection;
-            projectileInstance.GetComponent<ProjectileBehavior>().Scale();
-            projectileInstance.GetComponent<DamageSource>().damage = PlayerStats.projectileDamage;
+            Vector2[] direction = {aimDirection, aimDirection1, aimDirection2};
+            GameObject[] projectileInstance = new GameObject[bulletCount];
+            for (int i = 0; i < bulletCount; i++)
+            {
+                //fire a projectile
+                projectileInstance[i] = Instantiate(playerBulletPrefab, firePoint.position, Quaternion.identity);
+                projectileInstance[i].GetComponent<ProjectileBehavior>().direction = direction[i];
+                projectileInstance[i].GetComponent<ProjectileBehavior>().Scale();
+                projectileInstance[i].GetComponent<DamageSource>().damage = PlayerStats.projectileDamage;
+            }
 
             //reset tempFireRate
             tempFireRate = 0f;
@@ -81,18 +107,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    public IEnumerator ShotgunFire()
     {
-        rb.velocity =
-            new Vector2(axis.x * movementSpeed,
-                axis.y * movementSpeed); // This moves the player
+        bulletCount = 3;
+        yield return new WaitForSeconds(shotgunTimer);
+        bulletCount = 1;
     }
 
     public IEnumerator TempSpeedUp()
     {
         movementSpeed += speedBoostSpeed;
         yield return new WaitForSeconds(speedBoostTimer);
-        //Debug.Log("Hello???");
         movementSpeed -= speedBoostSpeed;
     }
 
@@ -109,6 +134,11 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Speed Boost"))
         {
             StartCoroutine(TempSpeedUp());
+        }
+
+        if (other.CompareTag("Shotgun"))
+        {
+            StartCoroutine(ShotgunFire());
         }
     }
 }
