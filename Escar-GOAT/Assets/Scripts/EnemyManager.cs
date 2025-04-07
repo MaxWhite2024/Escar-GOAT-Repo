@@ -113,7 +113,15 @@ public class EnemyManager : MonoBehaviour
 
         for(int i = 0; i < enemies.Count; i++)
         {
-            enemies[i].GetComponent<Enemy>().KnockBack(50);
+            if(enemies[i] != null)
+            {
+                enemies[i].GetComponent<Enemy>().KnockBack(50);
+            }
+            else
+            {
+                enemies.RemoveAt(i);
+                i--;
+            }
         }
     }
 }
