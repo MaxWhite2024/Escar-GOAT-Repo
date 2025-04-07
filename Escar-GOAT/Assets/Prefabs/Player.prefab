@@ -203,9 +203,9 @@ MonoBehaviour:
   input: {fileID: 0}
   axis: {x: 0, y: 0}
   movementSpeed: 2
-  speedBoostSpeed: 0
-  speedBoostTimer: 0
-  shotgunTimer: 0
+  speedBoostSpeed: 4
+  speedBoostTimer: 3
+  shotgunTimer: 5
   playerWeaponTransform: {fileID: 3219722358520361748}
   playerBulletPrefab: {fileID: 4692344183259313107, guid: 1b673f598de6b7c49aad43f26366e635, type: 3}
   playerGun: {fileID: 886975524317599963}
@@ -286,7 +286,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6792524254400340179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab6d50b3b087d04299366d1ceddea48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 45
   type: 0
 --- !u!95 &3966498945310431438
 Animator:
@@ -885,7 +885,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

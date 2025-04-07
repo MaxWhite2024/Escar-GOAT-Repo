@@ -432,6 +432,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1052931161661770171, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
+      propertyPath: shotgunTimer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052931161661770171, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
       propertyPath: speedBoostSpeed
       value: 4
       objectReference: {fileID: 0}
@@ -756,7 +760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.7682, y: 0}
+  m_AnchoredPosition: {x: 6.7681885, y: 0}
   m_SizeDelta: {x: -92.9218, y: -70.308}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1876232811
