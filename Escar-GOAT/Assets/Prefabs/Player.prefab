@@ -210,8 +210,8 @@ MonoBehaviour:
   playerBulletPrefab: {fileID: 4692344183259313107, guid: 1b673f598de6b7c49aad43f26366e635, type: 3}
   playerGun: {fileID: 886975524317599963}
   firePoint: {fileID: 4297657955415602788}
-  shotgunPoint1: {fileID: 0}
-  shotgunPoint2: {fileID: 0}
+  shotgunPoint1: {fileID: 7896324735198061760}
+  shotgunPoint2: {fileID: 4445457765060622682}
   playerSprite: {fileID: 245341104385524153}
   cosmeticSprite: {fileID: 5095145626453877485}
   bulletCount: 1
