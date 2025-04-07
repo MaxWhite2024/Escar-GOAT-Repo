@@ -180,7 +180,9 @@ MonoBehaviour:
   coinPrefab: {fileID: 337705264694613172, guid: 436b049389d27ac4684b24d754477f7a, type: 3}
   maxHealth: 0
   powerUpDropRate: 0
-  powerUpType: []
+  powerUpType:
+  - {fileID: 5806619588110163342, guid: 33370ec7a313742419ab6843bd05e01a, type: 3}
+  - {fileID: 8703249119947228090, guid: 0573a2e952f2d4f2c96bf605fe465e23, type: 3}
 --- !u!114 &4345342269049673383
 MonoBehaviour:
   m_ObjectHideFlags: 0
