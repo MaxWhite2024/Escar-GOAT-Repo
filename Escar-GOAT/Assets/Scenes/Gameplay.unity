@@ -441,7 +441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1052931161661770171, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
       propertyPath: speedBoostTimer
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1352341321354470588, guid: c4a2fc44e67b0e743930a5ee12e00ee8, type: 3}
       propertyPath: m_LocalPosition.x
