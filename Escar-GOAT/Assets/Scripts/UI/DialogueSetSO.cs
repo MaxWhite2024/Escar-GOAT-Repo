@@ -8,7 +8,7 @@ public class DialogueGroup
 }
 
 [CreateAssetMenu(fileName = "DialogueSet", menuName = "new DialogueSet")]
-public class DialogueSet : ScriptableObject
+public class DialogueSetSO : ScriptableObject
 {
     
     public DialogueGroup[] dialogueGroups;

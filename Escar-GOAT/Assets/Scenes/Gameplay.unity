@@ -978,9 +978,9 @@ MonoBehaviour:
   dialogueBox: {fileID: 825371177}
   dialogueText: {fileID: 1876232811}
   scoreMilestionDialogueCooldownInSeconds: 30
-  startingDialogueSet: {fileID: 11400000, guid: a1f752d7b44b4344bb85d7b8b6ce0a80, type: 2}
-  scoreMilestoneDialogueSet: {fileID: 11400000, guid: b4113beea89081a4bb478400d8c8a176, type: 2}
-  damageTakenDialogueSet: {fileID: 11400000, guid: 5d44a675f08d49c4caea5e1eb102c31b, type: 2}
+  startingDialogueSet: {fileID: 11400000, guid: 68b5146272632684e8ce856f13c20e0e, type: 2}
+  scoreMilestoneDialogueSet: {fileID: 11400000, guid: 0364784934d917547b68be630e8d08a9, type: 2}
+  damageTakenDialogueSet: {fileID: 11400000, guid: 02c04b7269601c94ebd2200a3ddf1dea, type: 2}
 --- !u!114 &2121262417 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8834453978132689872, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
