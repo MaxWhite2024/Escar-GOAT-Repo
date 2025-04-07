@@ -544,6 +544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2161672785550197166, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -90.87988
+      objectReference: {fileID: 0}
     - target: {fileID: 2486925560291393827, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -752,8 +756,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 115.67383, y: 0}
-  m_SizeDelta: {x: -310.733, y: -70.308}
+  m_AnchoredPosition: {x: 6.7682, y: 0}
+  m_SizeDelta: {x: -92.9218, y: -70.308}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1876232811
 MonoBehaviour:
