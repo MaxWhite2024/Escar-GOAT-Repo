@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4345342269049673383}
   - component: {fileID: 2051980662521425183}
   - component: {fileID: 8891025703018384464}
-  - component: {fileID: 334002048859635879}
+  - component: {fileID: 5774354926231896375}
   m_Layer: 6
   m_Name: Itty Bitty Enemy
   m_TagString: Untagged
@@ -179,6 +179,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   coinPrefab: {fileID: 337705264694613172, guid: 436b049389d27ac4684b24d754477f7a, type: 3}
   maxHealth: 0
+  powerUpDropRate: 0
+  powerUpType: []
 --- !u!114 &4345342269049673383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +229,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &334002048859635879
+--- !u!114 &5774354926231896375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,22 +238,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1517545464392101253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5386620664999ee43a27a8caed36d1cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bdf896c3e2d3644d8cb1e3d56a5a228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 0
-  waveSize: 0
-  enemiesAddedEachWave: 0
-  enemyHealthAddedEachWave: 0
-  enemyDamageAddedEachWave: 0
-  spawnRadius: 0
-  initialWaveScore: 10
-  waveScoreMultiplier: 1
-  smallEnemySpawnChance: 0
-  enemyPrefab: {fileID: 0}
-  smallEnemyPrefab: {fileID: 0}
-  timerUI: {fileID: 0}
-  player: {fileID: 0}
-  spawnLocations: []
-  enemies: []
-  timer: 0
+  cullingDistance: 50
