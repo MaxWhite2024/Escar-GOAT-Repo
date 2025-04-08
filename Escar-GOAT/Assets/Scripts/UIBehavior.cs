@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIBehavior : MonoBehaviour
 {
@@ -17,11 +18,13 @@ public class UIBehavior : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI highscoreText;
     [SerializeField] private TextMeshProUGUI playerHealthText;
-    private bool isMenuOpen = false;
+    private bool isShopMenuOpen = false;
     [SerializeField] private GameObject shopUI;
     [SerializeField] private GameObject cosmeticsMenuUI;
     [SerializeField] private GameObject premiumShopUI;
     [SerializeField] private GameObject closedShopUI;
+    [SerializeField] private GameObject pauseMenuUI;
+    private bool isPauseMenuOpen = false;
 
     [Header("Upgrade Text Variables")]
     [SerializeField] private TextMeshProUGUI sizeUpgradeText;
@@ -140,17 +143,23 @@ public class UIBehavior : MonoBehaviour
         inductionUpgradeText.text = PlayerStats.inductionUpgradeCost.ToString();
         loveUpgradeText.text = PlayerStats.loveUpgradeCost.ToString();
 
-        //if user pressed the toggle shop button,...
-        if (userInput.ToggleShop)
+        //if user pressed the toggle shop button and pause menu is NOT open,...
+        if (userInput.ToggleShop && !isPauseMenuOpen)
         {
             ToggleShop();
+        }
+
+        //if user pressed the toggle pause button and shop menu is NOT open,...
+        if(userInput.TogglePause)
+        {
+            TogglePauseMenu();
         }
     }
 
     private void ToggleShop()
     {
         //if menu is open,...
-        if (isMenuOpen)
+        if (isShopMenuOpen)
         {
             //exit the shop
             ExitShop();
@@ -168,8 +177,8 @@ public class UIBehavior : MonoBehaviour
         //Resume the game
         Resume();
 
-        //if isMenuOpen is active,...
-        if (isMenuOpen)
+        //if isShopMenuOpen is active,...
+        if (isShopMenuOpen)
         {
             //make all menus NOT active
             shopUI.SetActive(false);
@@ -179,10 +188,10 @@ public class UIBehavior : MonoBehaviour
             //make closedShopUI active
             closedShopUI.SetActive(true);
 
-            //set isMenuOpen to false
-            isMenuOpen = false;
+            //set isShopMenuOpen to false
+            isShopMenuOpen = false;
         }
-        //else isMenuOpen is NOT active,...
+        //else isShopMenuOpen is NOT active,...
         else
         {
             //do nothing
@@ -195,13 +204,13 @@ public class UIBehavior : MonoBehaviour
         //pause the game
         Pause();
 
-        //if isMenuOpen is active,...
-        if (isMenuOpen)
+        //if isShopMenuOpen is active,...
+        if (isShopMenuOpen)
         {
             //do nothing
             return;
         }
-        //else isMenuOpen is NOT active,...
+        //else isShopMenuOpen is NOT active,...
         else
         {
             //make shopUI active
@@ -210,8 +219,67 @@ public class UIBehavior : MonoBehaviour
             //make closedShopUI NOT active
             closedShopUI.SetActive(false);
 
-            //set isMenuOpen to true
-            isMenuOpen = true;
+            //set isShopMenuOpen to true
+            isShopMenuOpen = true;
+        }
+    }
+
+    public void TogglePauseMenu()
+    {
+        //if pause menu is open,...
+        if (isPauseMenuOpen)
+        {
+            //exit the pause menu
+            ExitPauseMenu();
+        }
+        //else shop is NOT open,...
+        else
+        {
+            //open the shop
+            EnterPauseMenu();
+        }
+    }
+
+    private void ExitPauseMenu()
+    {
+        if(!isShopMenuOpen)
+            Resume();
+
+        //if isPauseMenuOpen is active,...
+        if (isPauseMenuOpen)
+        {
+            //make pause menus inactive
+            pauseMenuUI.SetActive(false);
+
+            //set isShopMenuOpen to false
+            isPauseMenuOpen = false;
+        }
+        //else isPauseMenuOpen is NOT active,...
+        else
+        {
+            //do nothing
+            return;
+        }
+    }
+
+    private void EnterPauseMenu()
+    {
+        Pause();
+
+        //if isPauseMenuOpen is active,...
+        if (isPauseMenuOpen)
+        {
+            //do nothing
+            return;
+        }
+        //else isPauseMenuOpen is NOT active,...
+        else
+        {
+            //make shopUI active
+            pauseMenuUI.SetActive(true);
+
+            //set isPauseMenuOpen to true
+            isPauseMenuOpen = true;
         }
     }
 
@@ -227,8 +295,8 @@ public class UIBehavior : MonoBehaviour
 
     public void ToCosmetics()
     {
-        //if isMenuOpen is active,...
-        if (isMenuOpen)
+        //if isShopMenuOpen is active,...
+        if (isShopMenuOpen)
         {
             //close shop
             shopUI.SetActive(false);
@@ -240,8 +308,8 @@ public class UIBehavior : MonoBehaviour
 
     public void ToPremium()
     {
-        //if isMenuOpen is active,...
-        if (isMenuOpen)
+        //if isShopMenuOpen is active,...
+        if (isShopMenuOpen)
         {
             //close shop
             shopUI.SetActive(false);
@@ -253,8 +321,8 @@ public class UIBehavior : MonoBehaviour
 
     public void ToShop()
     {
-        //if isMenuOpen is active,...
-        if (isMenuOpen)
+        //if isShopMenuOpen is active,...
+        if (isShopMenuOpen)
         {
             //close cosmetics
             cosmeticsMenuUI.SetActive(false);
@@ -265,5 +333,10 @@ public class UIBehavior : MonoBehaviour
             //open shop
             shopUI.SetActive(true);
         }
+    }
+
+    public void BackToTitle()
+    {
+        SceneManager.LoadScene("Start");
     }
 }
