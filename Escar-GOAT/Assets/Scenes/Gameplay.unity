@@ -628,6 +628,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -90.87988
       objectReference: {fileID: 0}
+    - target: {fileID: 2329588943680408341, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329588943680408341, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2486925560291393827, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -660,9 +668,41 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 395694345}
+    - target: {fileID: 3202933517124448367, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202933517124448367, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202933517124448367, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281289057740972199, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281289057740972199, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281289057740972199, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3391396031998201695, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
       propertyPath: m_SizeDelta.y
       value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141281195186687971, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141281195186687971, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8182584344381598096, guid: d624a325c46be24449214cd84a5a64a7, type: 3}
       propertyPath: playerEquippedCosmeticImage
